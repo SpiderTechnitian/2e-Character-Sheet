@@ -73,6 +73,10 @@
   padding: 3px;
 }
 
+.charsheet input.sheet-tinier {
+  display: inline-block;
+  width: 2em;
+}
 .charsheet input.sheet-tiny {
   display: inline-block;
   width: 3em;
