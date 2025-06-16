@@ -2,15 +2,6 @@
   background: #1f1f1f;
 }
 
-.charsheet color-test {
-  color: #c8c3bc;
-}
-
-.charsheet input[type="text"].sheet-color-test {
-  color: white;
-  background-color: #002db3;
-}
-
 .charsheet input {
   color: #c8c3bc;
   background-color: #17191a;
@@ -29,6 +20,11 @@
 /* to resize would need to swap from fixed units for width and height */
 
 .charsheet textarea.sheet-half-page-textbox {
+  width: 370px !important;
+  height: 90px !important;
+}
+
+.charsheet textarea.sheet-half-page-textbox-thin {
   width: 330px !important;
   height: 90px !important;
 }
@@ -105,6 +101,68 @@
   display: inline-block;
   width: 3em;
   text-align: center;
+}
+
+button,
+button:hover,
+button:active {
+  background-image: none;
+}
+
+/* background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); current button gradient effect from ".btn, .btn.btn-default"()*/
+
+.charsheet button[type="roll"].sheet-spell-dark,
+.charsheet button[type="roll"].sheet-book-dark,
+.charsheet button[type="roll"].sheet-d6-dark,
+.charsheet button[type="roll"].sheet-d8-dark,
+.charsheet button[type="roll"].sheet-d10-dark,
+.charsheet button[type="roll"].sheet-d12-dark,
+.charsheet button[type="roll"].sheet-d20-dark,
+.charsheet button[type="roll"].sheet-d100-dark {
+  background-color: #1f1f1f;
+  border-color: #3e4446;
+  color: #c8c3bc;
+  height: 19.6px;
+}
+
+.charsheet button[type="roll"].sheet-spell-dark::before {
+  font-family: "Pictos Custom";
+  content: "t"; /* r */
+}
+
+.charsheet button[type="roll"].sheet-book-dark::before {
+  font-family: "Pictos Three";
+  content: "g";
+}
+
+.charsheet button[type="roll"].sheet-d6-dark::before {
+  font-family: "dicefontd6";
+  content: "0";
+}
+
+.charsheet button[type="roll"].sheet-d8-dark::before {
+  font-family: "dicefontd8";
+  content: "0";
+}
+
+.charsheet button[type="roll"].sheet-d10-dark::before {
+  font-family: "dicefontd10";
+  content: "0";
+}
+
+.charsheet button[type="roll"].sheet-d12-dark::before {
+  font-family: "dicefontd12";
+  content: "0";
+}
+
+.charsheet button[type="roll"].sheet-d20-dark::before {
+  font-family: "dicefontd20";
+  content: "0";
+}
+
+.charsheet button[type="roll"].sheet-d100-dark::before {
+  font-family: "dicefontd10";
+  content: "0";
 }
 
 input[type="number"].sheet-tiny::-webkit-inner-spin-button {
@@ -195,7 +253,12 @@ input[type="checkbox"] {
 .charsheet input.sheet-tab5:checked ~ div.sheet-tab5,
 .charsheet input.sheet-tab6:checked ~ div.sheet-tab6,
 .charsheet input.sheet-tab7:checked ~ div.sheet-tab7,
-.charsheet input.sheet-tab8:checked ~ div.sheet-tab8 {
+.charsheet input.sheet-tab8:checked ~ div.sheet-tab8,
+.charsheet input.sheet-tab9:checked ~ div.sheet-tab9,
+.charsheet input.sheet-tab10:checked ~ div.sheet-tab10,
+.charsheet input.sheet-tab11:checked ~ div.sheet-tab11,
+.charsheet input.sheet-tab12:checked ~ div.sheet-tab12,
+.charsheet input.sheet-tab13:checked ~ div.sheet-tab13 {
   display: block;
 }
 .charsheet input.sheet-tab + span::before,
