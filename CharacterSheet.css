@@ -265,28 +265,21 @@ input[type="checkbox"] {
 .charsheet input.sheet-tab13:checked ~ div.sheet-tab13 {
   display: block;
 }
-.charsheet input.sheet-tab + span::before,
 .charsheet input.sheet-tab + span::before {
   margin-right: 4px;
-  border: solid 1px #a8a8a8;
+  border: solid 1px #3e4446;
   line-height: 14px;
   text-align: center;
   display: inline-block;
   vertical-align: middle;
 
-  -moz-box-shadow: 0 0 2px #ccc;
-  -webkit-box-shadow: 0 0 2px #ccc;
-  box-shadow: 0 0 2px #ccc;
+  /* box-shadow: 0 0 2px #ccc; Mike also said if Ed saw this one he'd probably jump. */
 
-  background: #f6f6f6;
-  background: -moz-radial-gradient(#f6f6f6, #dfdfdf);
-  background: -webkit-radial-gradient(#f6f6f6, #dfdfdf);
-  background: -ms-radial-gradient(#f6f6f6, #dfdfdf);
-  background: -o-radial-gradient(#f6f6f6, #dfdfdf);
-  background: radial-gradient(#f6f6f6, #dfdfdf);
+  background: #17191a;
+  /* background: radial-gradient(#17191a, #3e4446); Mike said this looks TRASH and NEVER to consider this again. */ 
 }
 
-/* Fake radio */
+/* Empty looking radio button - just the circle */
 .charsheet input.sheet-tab + span::before {
   content: "";
   width: 12px;
@@ -297,12 +290,14 @@ input[type="checkbox"] {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+/* The dot in the middle of a checked radio box */
 .charsheet input.sheet-tab:checked + span::before {
+  color: #c8c3bc;
   content: "•";
-}
+} 
 .charsheet input.sheet-tab:not(:first-child)::before {
   border-left: none;
-}
+} /* this doesn't do anything, can be removed */
 
 /*/ Styles for 2ESheet rolltemplates /*/
 
