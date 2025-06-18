@@ -523,249 +523,275 @@
       </div>
   </div>
   <hr>
-  <div class="sheet-2colrow">
-    <div class="sheet-col">
-      <h4>Gear</h4>
-      <table style="border-collapse: collapse; border-spacing: 0;">
+  <!-- <div class="sheet-2colrow"> -->
+  <h4>Gear on Person</h4>
+  <table style="border-collapse: collapse; border-spacing: 0;">
+    <tr>
+      <th class="bluetable">Description</th>
+      <th class="bluetable">Quant</th>
+      <th class="bluetable">Weight</th>
+      <th class="bluetable">Total</th>
+      <th class="bluetable">Location</th>
+      <th class="bluetable">Send to Stash</th>
+    </tr>
+    <tr>
+      <td><input type="text" name="attr_geardesc" class="sheet-long" value="Backpack"></td>
+      <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
+      <td><input type="number" name="attr_gearweigh" class="sheet-short" value="2"></td>
+      <td><input type="number" name="attr_geartotal" class="sheet-short" value="123" disabled="true"></td>
+      <td><input type="text" name="attr_gearloc" class="sheet-cool-name" value="Backpack"></td>
+    </tr>
+  </table>
+  <fieldset name="repeating_gear" class="repeating_gear">
+    <table style="border-collapse: collapse; border-spacing: 0;">
         <tr>
-          <td class="bluetable">Description</td>
-          <td class="bluetable">Weight</td>
-          <td class="bluetable">Location</td>
-        </tr>
-        <tr>
-          <td><input type="text" name="attr_geardesc"></td>
+          <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
+          <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
           <td><input type="number" name="attr_gearweigh" class="sheet-short" value="0"></td>
-          <td><input type="text" name="attr_gearloc" class=""></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short" value="123" disabled="true"></td>
+          <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
+          <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓&nbsp;Send</button></td>
         </tr>
       </table>
-      <fieldset name="repeating_gear" class="repeating_gear">
-        <table style="border-collapse: collapse; border-spacing: 0;">
-            <tr>
-              <td><input type="text" name="attr_geardesc"></td>
-              <td><input type="number" name="attr_gearweigh" class="sheet-short" value="0"></td>
-              <td><input type="text" name="attr_gearloc" class=""></td>
-            </tr>
-          </table>
-      </fieldset>
-      <br />
-      <span>Tot Gear weight:</span><input type="number" name="attr_gearweighttotal" class="sheet-nobut">
-      <span>Tot Weapon weight:</span><input type="number" name="attr_weapweighttotal" class="sheet-nobut"><br />
-      <span>Total weight:</span><input type="number" name="attr_totalweightCarry" class="sheet-nobut"><br />
-      <span>Notes</span><br/>
-      <textarea name="attr_gearnotes" class="sheet-half-page-textbox"></textarea>
-      <br />
-      <br />
-      <h4>Movement and Encumbrance</h4>
-      <input type="radio" name="attr_tab6" class="sheet-tab sheet-tab0" value="0" checked="checked"/><span>No Encumbrance</span><br />
-      <input type="radio" name="attr_tab6" class="sheet-tab sheet-tab11" value="1"/><span>Basic Encumbrance</span><br />
-      <input type="radio" name="attr_tab6" class="sheet-tab sheet-tab12" value="2"/><span>Advanced Encumbrance</span><br />
-      <div class="sheet-tab-content sheet-tab11">
-        <table style="border-collapse: collapse; border-spacing: 0;">
-          <tr>
-            <th class="bluetable"> </th>
-            <th class="bluetable">Speed</th>
-            <th class="bluetable">Weight</th>
-            <th class="bluetable">Atk -</th>
-            <th class="bluetable">AC -</th>
-          </tr>
-          <tr>
-            <th class="bluetable">Base</th>
-            <td><input type="text" name="attr_basespeed" class="sheet-short"/></td>
-            <td><input type="text" name="attr_baseweight" class="sheet-short"/></td>
-            <td><input type="number" name="attr_basepen" class="sheet-short" value="0"/></td>
-            <td><input type="number" name="attr_basepenAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">Light (2/3)</th>
-            <td><input type="number" name="attr_lightspeed" value="@{basespeed}-[[@{basespeed}*1/3]]" disabled="true" /></td>
-            <td><input type="text" name="attr_lightweight" class="sheet-short"/></td>
-            <td><input type="number" name="attr_lightpen" class="sheet-short" value="0"/></td>
-            <td><input type="number" name="attr_lightpenAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">Moderate (1/2)</th>
-            <td><input type="number" name="attr_modspeed" value="@{basespeed}-[[@{basespeed}*1/2]]" disabled="true" /></td>
-            <td><input type="text" name="attr_modweight" class="sheet-short"/></td>
-            <td><input type="number" name="attr_modpen" class="sheet-short" value="-1"/></td>
-            <td><input type="number" name="attr_modpenAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">Heavy (1/3)</th>
-            <td><input type="number" name="attr_heavyspeed" value="@{basespeed}-[[@{basespeed}*2/3]]" disabled="true" /></td>
-            <td><input type="text" name="attr_heavyweight" class="sheet-short"/></td>
-            <td><input type="number" name="attr_heavypen" class="sheet-short" value="-2"/></td>
-            <td><input type="number" name="attr_heavypenAC" class="sheet-short" value="-1"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">Severe (1)</th>
-            <td><input type="number" name="attr_sevspeed" value="1" disabled="true" /></td>
-            <td><input type="text" name="attr_sevweight" class="sheet-short"/></td>
-            <td><input type="number" name="attr_sevpen" class="sheet-short" value="-4"/></td>
-            <td><input type="number" name="attr_sevpenAC" class="sheet-short" value="-3"/></td>
-          </tr>
-        </table>
-        <span>Current weight:</span><input type="number" name="attr_movweighttotal" class="sheet-nobut" value="@{totalweightCarry}+1-1" disabled="true">
-      </div>
-      <div class="sheet-tab-content sheet-tab12">
-        <table style="border-collapse: collapse; border-spacing: 0;">
-          <tr>
-            <th class="bluetable">Speed</th>
-            <th class="bluetable">Weight</th>
-            <th class="bluetable">Atk -</th>
-            <th class="bluetable">AC -</th>
-          </tr>
-          <tr>
-            <th class="bluetable">12/6</th>
-            <td><input type="text" name="attr_12weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_12pen" class="sheet-short" value="0"/></td>
-            <td><input type="text" name="attr_12penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">11/5</th>
-            <td><input type="text" name="attr_11weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_11pen" class="sheet-short" value="0"/></td>
-            <td><input type="text" name="attr_11penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">10/5</th>
-            <td><input type="text" name="attr_10weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_10pen" class="sheet-short" value="0"/></td>
-            <td><input type="text" name="attr_10penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">9/4</th>
-            <td><input type="text" name="attr_9weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_9pen" class="sheet-short" value="0"/></td>
-            <td><input type="text" name="attr_9penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">8/4</th>
-            <td><input type="text" name="attr_8weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_8pen" class="sheet-short" value="0"/></td>
-            <td><input type="text" name="attr_8penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">7/3</th>
-            <td><input type="text" name="attr_7weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_7pen" class="sheet-short" value="0"/></td>
-            <td><input type="text" name="attr_7penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">6/3</th>
-            <td><input type="text" name="attr_6weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_6pen" class="sheet-short" value="-1"/></td>
-            <td><input type="text" name="attr_6penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">5/2</th>
-            <td><input type="text" name="attr_5weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_5pen" class="sheet-short" value="-1"/></td>
-            <td><input type="text" name="attr_5penAC" class="sheet-short" value="0"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">4/2</th>
-            <td><input type="text" name="attr_4weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_4pen" class="sheet-short" value="-2"/></td>
-            <td><input type="text" name="attr_4penAC" class="sheet-short" value="-1"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">3/1</th>
-            <td><input type="text" name="attr_3weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_3pen" class="sheet-short" value="-2"/></td>
-            <td><input type="text" name="attr_3penAC" class="sheet-short" value="-1"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">2/1</th>
-            <td><input type="text" name="attr_2weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_2pen" class="sheet-short" value="-2"/></td>
-            <td><input type="text" name="attr_2penAC" class="sheet-short" value="-1"/></td>
-          </tr>
-          <tr>
-            <th class="bluetable">1/1</th>
-            <td><input type="text" name="attr_1weight" class="sheet-short"/></td>
-            <td><input type="text" name="attr_1pen" class="sheet-short" value="-4"/></td>
-            <td><input type="text" name="attr_1penAC" class="sheet-short" value="-3"/></td>
-          </tr>
-        </table>
-      <span>Current weight:</span><input type="number" name="attr_movweighttotal" class="sheet-nobut" value="@{totalweightCarry}+1-1" disabled="true">
-      </div>
-    </div>
-    <div class="sheet-col">
-      <h4>Wealth</h4>
-      <br />
-      <input type="number" name="attr_plat" class="sheet-nobut"> <span>PP</span>
-      <input type="number" name="attr_gold" class="sheet-nobut"> <span>GP</span>
-      <input type="number" name="attr_elec" class="sheet-nobut"> <span>EP</span>
-      <input type="number" name="attr_silv" class="sheet-nobut"> <span>SP</span>
-      <input type="number" name="attr_copp" class="sheet-nobut"> <span>CP</span><br />
-      <span>Total GP value from gems:</span> <input type="text" name="attr_gemsvalue" class="short">
-      <br /><span>Total GP value from other items:</span> <input type="text" name="attr_othervalue" class="short"><br /><br />
-      <h4>Currency Conversion Calculator</h4>
-      <table style="border-collapse: collapse; border-spacing: 0;">
-        <tr>
-          <td class="bluetable">Currency</td>
-          <td class="bluetable">|Quantity</td>
-          <td class="bluetable">|Copper</td>
-          <td class="bluetable">|Silver</td>
-          <td class="bluetable">|Electrum</td>
-          <td class="bluetable">|Gold</td>
-          <td class="bluetable">|Platinum</td>
-        </tr>
-        <tr>
-          <td class="bluetable">Copper</td>
-          <td><input type="number" name="attr_copq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_copcop" class="sheet-short" value="@{copq}*1" disabled="true"/></td>
-          <td><input type="text" name="attr_cops" class="sheet-short" value="@{copq}/10" disabled="true"/></td>
-          <td><input type="text" name="attr_cope" class="sheet-short" value="@{cops}/5" disabled="true"/></td>
-          <td><input type="text" name="attr_copg" class="sheet-short" value="@{cops}/10" disabled="true"/></td>
-          <td><input type="text" name="attr_copp" class="sheet-short" value="@{copg}/5" disabled="true"/></td>
-        </tr>
-        <tr>
-          <td class="bluetable">Silver</td>
-          <td><input type="number" name="attr_sq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_scop" class="sheet-short" value="@{sq}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_ss" class="sheet-short" value="@{sq}*1" disabled="true"/></td>
-          <td><input type="text" name="attr_se" class="sheet-short" value="@{ss}/5" disabled="true"/></td>
-          <td><input type="text" name="attr_sg" class="sheet-short" value="@{ss}/10" disabled="true"/></td>
-          <td><input type="text" name="attr_sp" class="sheet-short" value="@{sg}/5" disabled="true"/></td>
-        </tr>
-        <tr>
-          <td class="bluetable">Electrum</td>
-          <td><input type="number" name="attr_eq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_ecop" class="sheet-short" value="@{es}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_es" class="sheet-short" value="@{eq}*5" disabled="true"/></td>
-          <td><input type="text" name="attr_ee" class="sheet-short" value="@{eq}*1" disabled="true"/></td>
-          <td><input type="text" name="attr_eg" class="sheet-short" value="@{es}/10" disabled="true"/></td>
-          <td><input type="text" name="attr_ep" class="sheet-short" value="@{eg}/5" disabled="true"/></td>
-        </tr>
-        <tr>
-            <td class="bluetable">Gold</td>
-            <td><input type="number" name="attr_gq" class="sheet-short"/></td>
-            <td><input type="text" name="attr_gcop" class="sheet-short" value="@{gq}*100" disabled="true"/></td>
-            <td><input type="text" name="attr_gs" class="sheet-short" value="@{gq}*10" disabled="true"/></td>
-            <td><input type="text" name="attr_ge" class="sheet-short" value="@{gs}/5" disabled="true"/></td>
-            <td><input type="text" name="attr_gg" class="sheet-short" value="@{gq}*1" disabled="true"/></td>
-            <td><input type="text" name="attr_gp" class="sheet-short" value="@{gg}/5" disabled="true"/></td>
-        </tr>
-        <tr>
-            <td class="bluetable">Platinum</td>
-            <td><input type="number" name="attr_pq" class="sheet-short"/></td>
-            <td><input type="text" name="attr_pcop" class="sheet-short" value="@{ps}*10" disabled="true"/></td>
-            <td><input type="text" name="attr_ps" class="sheet-short" value="@{pg}*10" disabled="true"/></td>
-            <td><input type="text" name="attr_pe" class="sheet-short" value="@{ps}/5" disabled="true"/></td>
-            <td><input type="text" name="attr_pg" class="sheet-short" value="@{pq}*5" disabled="true"/></td>
-            <td><input type="text" name="attr_pp" class="sheet-short" value="@{pq}*1" disabled="true"/></td>
-        </tr>
-      </table>
-      <br />
-      <span>Gems</span><br />
-      <textarea name="attr_gems" class="sheet-half-page-textbox"></textarea>
-      <span>Other Items Of Value</span><br />
-      <textarea name="attr_otherval"></textarea>
-      <br />
-      <span>(100 Copper = 10 Silver = 2 Electrum = 1 Gold = 1/5 Platinum)</span><br />
-    </div>
+  </fieldset>
+
+  <br/><br/>
+  <h4>Gear in Stash</h4>
+  <fieldset name="repeating_stash" class="repeating_stash">
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
+        <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
+        <td><input type="number" name="attr_gearweigh" class="sheet-short" value="0"></td>
+        <td><input type="number" name="attr_geartotal" class="sheet-short" value="123" disabled="true"></td>
+        <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
+        <td><button type="roll" name="roll_send_up" class="sheet-send-up-dark">↑&nbsp;Send</button></td>
+      </tr>
+    </table>
+  </fieldset>
+
+  <br />
+  <span>Tot Gear weight:</span><input type="number" name="attr_gearweighttotal" class="sheet-nobut">&nbsp;&nbsp;
+  <span>Tot Weapon weight:</span><input type="number" name="attr_weapweighttotal" class="sheet-nobut">&nbsp;&nbsp;
+  <span>Total weight:</span><input type="number" name="attr_totalweightCarry" class="sheet-nobut"><br /><br />
+  <span>Gear Notes</span><br/>
+  <textarea name="attr_gearnotes" class="sheet-full-page-textbox"></textarea>
+
+
+
+
+  <hr>
+  <br/><br/><br/><br/><br/><br/>
+  <h4>Movement and Encumbrance</h4>
+  <input type="radio" name="attr_tab6" class="sheet-tab sheet-tab0" value="0" checked="checked"/><span>No Encumbrance</span><br />
+  <input type="radio" name="attr_tab6" class="sheet-tab sheet-tab11" value="1"/><span>Basic Encumbrance</span><br />
+  <input type="radio" name="attr_tab6" class="sheet-tab sheet-tab12" value="2"/><span>Advanced Encumbrance</span><br />
+  <div class="sheet-tab-content sheet-tab11">
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <th class="bluetable"> </th>
+        <th class="bluetable">Speed</th>
+        <th class="bluetable">Weight</th>
+        <th class="bluetable">Atk -</th>
+        <th class="bluetable">AC -</th>
+      </tr>
+      <tr>
+        <th class="bluetable">Base</th>
+        <td><input type="text" name="attr_basespeed" class="sheet-short"/></td>
+        <td><input type="text" name="attr_baseweight" class="sheet-short"/></td>
+        <td><input type="number" name="attr_basepen" class="sheet-short" value="0"/></td>
+        <td><input type="number" name="attr_basepenAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">Light (2/3)</th>
+        <td><input type="number" name="attr_lightspeed" value="@{basespeed}-[[@{basespeed}*1/3]]" disabled="true" /></td>
+        <td><input type="text" name="attr_lightweight" class="sheet-short"/></td>
+        <td><input type="number" name="attr_lightpen" class="sheet-short" value="0"/></td>
+        <td><input type="number" name="attr_lightpenAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">Moderate (1/2)</th>
+        <td><input type="number" name="attr_modspeed" value="@{basespeed}-[[@{basespeed}*1/2]]" disabled="true" /></td>
+        <td><input type="text" name="attr_modweight" class="sheet-short"/></td>
+        <td><input type="number" name="attr_modpen" class="sheet-short" value="-1"/></td>
+        <td><input type="number" name="attr_modpenAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">Heavy (1/3)</th>
+        <td><input type="number" name="attr_heavyspeed" value="@{basespeed}-[[@{basespeed}*2/3]]" disabled="true" /></td>
+        <td><input type="text" name="attr_heavyweight" class="sheet-short"/></td>
+        <td><input type="number" name="attr_heavypen" class="sheet-short" value="-2"/></td>
+        <td><input type="number" name="attr_heavypenAC" class="sheet-short" value="-1"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">Severe (1)</th>
+        <td><input type="number" name="attr_sevspeed" value="1" disabled="true" /></td>
+        <td><input type="text" name="attr_sevweight" class="sheet-short"/></td>
+        <td><input type="number" name="attr_sevpen" class="sheet-short" value="-4"/></td>
+        <td><input type="number" name="attr_sevpenAC" class="sheet-short" value="-3"/></td>
+      </tr>
+    </table>
+    <span>Current weight:</span><input type="number" name="attr_movweighttotal" class="sheet-nobut" value="@{totalweightCarry}+1-1" disabled="true">
   </div>
+  <div class="sheet-tab-content sheet-tab12">
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <th class="bluetable">Speed</th>
+        <th class="bluetable">Weight</th>
+        <th class="bluetable">Atk -</th>
+        <th class="bluetable">AC -</th>
+      </tr>
+      <tr>
+        <th class="bluetable">12/6</th>
+        <td><input type="text" name="attr_12weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_12pen" class="sheet-short" value="0"/></td>
+        <td><input type="text" name="attr_12penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">11/5</th>
+        <td><input type="text" name="attr_11weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_11pen" class="sheet-short" value="0"/></td>
+        <td><input type="text" name="attr_11penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">10/5</th>
+        <td><input type="text" name="attr_10weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_10pen" class="sheet-short" value="0"/></td>
+        <td><input type="text" name="attr_10penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">9/4</th>
+        <td><input type="text" name="attr_9weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_9pen" class="sheet-short" value="0"/></td>
+        <td><input type="text" name="attr_9penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">8/4</th>
+        <td><input type="text" name="attr_8weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_8pen" class="sheet-short" value="0"/></td>
+        <td><input type="text" name="attr_8penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">7/3</th>
+        <td><input type="text" name="attr_7weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_7pen" class="sheet-short" value="0"/></td>
+        <td><input type="text" name="attr_7penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">6/3</th>
+        <td><input type="text" name="attr_6weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_6pen" class="sheet-short" value="-1"/></td>
+        <td><input type="text" name="attr_6penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">5/2</th>
+        <td><input type="text" name="attr_5weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_5pen" class="sheet-short" value="-1"/></td>
+        <td><input type="text" name="attr_5penAC" class="sheet-short" value="0"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">4/2</th>
+        <td><input type="text" name="attr_4weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_4pen" class="sheet-short" value="-2"/></td>
+        <td><input type="text" name="attr_4penAC" class="sheet-short" value="-1"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">3/1</th>
+        <td><input type="text" name="attr_3weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_3pen" class="sheet-short" value="-2"/></td>
+        <td><input type="text" name="attr_3penAC" class="sheet-short" value="-1"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">2/1</th>
+        <td><input type="text" name="attr_2weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_2pen" class="sheet-short" value="-2"/></td>
+        <td><input type="text" name="attr_2penAC" class="sheet-short" value="-1"/></td>
+      </tr>
+      <tr>
+        <th class="bluetable">1/1</th>
+        <td><input type="text" name="attr_1weight" class="sheet-short"/></td>
+        <td><input type="text" name="attr_1pen" class="sheet-short" value="-4"/></td>
+        <td><input type="text" name="attr_1penAC" class="sheet-short" value="-3"/></td>
+      </tr>
+    </table>
+    <span>Current weight:</span><input type="number" name="attr_movweighttotal" class="sheet-nobut" value="@{totalweightCarry}+1-1" disabled="true">
+  </div>
+    
+
+  <hr>
+  <h4>Wealth</h4>
+  <br />
+  <input type="number" name="attr_plat" class="sheet-nobut"> <span>PP</span>
+  <input type="number" name="attr_gold" class="sheet-nobut"> <span>GP</span>
+  <input type="number" name="attr_elec" class="sheet-nobut"> <span>EP</span>
+  <input type="number" name="attr_silv" class="sheet-nobut"> <span>SP</span>
+  <input type="number" name="attr_copp" class="sheet-nobut"> <span>CP</span><br />
+  <span>Total GP value from gems:</span> <input type="text" name="attr_gemsvalue" class="short">
+  <br /><span>Total GP value from other items:</span> <input type="text" name="attr_othervalue" class="short"><br /><br />
+  <h4>Currency Conversion Calculator</h4>
+  <table style="border-collapse: collapse; border-spacing: 0;">
+    <tr>
+      <td class="bluetable">Currency</td>
+      <td class="bluetable">|Quantity</td>
+      <td class="bluetable">|Copper</td>
+      <td class="bluetable">|Silver</td>
+      <td class="bluetable">|Electrum</td>
+      <td class="bluetable">|Gold</td>
+      <td class="bluetable">|Platinum</td>
+    </tr>
+    <tr>
+      <td class="bluetable">Copper</td>
+      <td><input type="number" name="attr_copq" class="sheet-short"/></td>
+      <td><input type="text" name="attr_copcop" class="sheet-short" value="@{copq}*1" disabled="true"/></td>
+      <td><input type="text" name="attr_cops" class="sheet-short" value="@{copq}/10" disabled="true"/></td>
+      <td><input type="text" name="attr_cope" class="sheet-short" value="@{cops}/5" disabled="true"/></td>
+      <td><input type="text" name="attr_copg" class="sheet-short" value="@{cops}/10" disabled="true"/></td>
+      <td><input type="text" name="attr_copp" class="sheet-short" value="@{copg}/5" disabled="true"/></td>
+    </tr>
+    <tr>
+      <td class="bluetable">Silver</td>
+      <td><input type="number" name="attr_sq" class="sheet-short"/></td>
+      <td><input type="text" name="attr_scop" class="sheet-short" value="@{sq}*10" disabled="true"/></td>
+      <td><input type="text" name="attr_ss" class="sheet-short" value="@{sq}*1" disabled="true"/></td>
+      <td><input type="text" name="attr_se" class="sheet-short" value="@{ss}/5" disabled="true"/></td>
+      <td><input type="text" name="attr_sg" class="sheet-short" value="@{ss}/10" disabled="true"/></td>
+      <td><input type="text" name="attr_sp" class="sheet-short" value="@{sg}/5" disabled="true"/></td>
+    </tr>
+    <tr>
+      <td class="bluetable">Electrum</td>
+      <td><input type="number" name="attr_eq" class="sheet-short"/></td>
+      <td><input type="text" name="attr_ecop" class="sheet-short" value="@{es}*10" disabled="true"/></td>
+      <td><input type="text" name="attr_es" class="sheet-short" value="@{eq}*5" disabled="true"/></td>
+      <td><input type="text" name="attr_ee" class="sheet-short" value="@{eq}*1" disabled="true"/></td>
+      <td><input type="text" name="attr_eg" class="sheet-short" value="@{es}/10" disabled="true"/></td>
+      <td><input type="text" name="attr_ep" class="sheet-short" value="@{eg}/5" disabled="true"/></td>
+    </tr>
+    <tr>
+        <td class="bluetable">Gold</td>
+        <td><input type="number" name="attr_gq" class="sheet-short"/></td>
+        <td><input type="text" name="attr_gcop" class="sheet-short" value="@{gq}*100" disabled="true"/></td>
+        <td><input type="text" name="attr_gs" class="sheet-short" value="@{gq}*10" disabled="true"/></td>
+        <td><input type="text" name="attr_ge" class="sheet-short" value="@{gs}/5" disabled="true"/></td>
+        <td><input type="text" name="attr_gg" class="sheet-short" value="@{gq}*1" disabled="true"/></td>
+        <td><input type="text" name="attr_gp" class="sheet-short" value="@{gg}/5" disabled="true"/></td>
+    </tr>
+    <tr>
+        <td class="bluetable">Platinum</td>
+        <td><input type="number" name="attr_pq" class="sheet-short"/></td>
+        <td><input type="text" name="attr_pcop" class="sheet-short" value="@{ps}*10" disabled="true"/></td>
+        <td><input type="text" name="attr_ps" class="sheet-short" value="@{pg}*10" disabled="true"/></td>
+        <td><input type="text" name="attr_pe" class="sheet-short" value="@{ps}/5" disabled="true"/></td>
+        <td><input type="text" name="attr_pg" class="sheet-short" value="@{pq}*5" disabled="true"/></td>
+        <td><input type="text" name="attr_pp" class="sheet-short" value="@{pq}*1" disabled="true"/></td>
+    </tr>
+  </table>
+  <br />
+  <span>Gems</span><br />
+  <textarea name="attr_gems" class="sheet-half-page-textbox"></textarea>
+  <span>Other Items Of Value</span><br />
+  <textarea name="attr_otherval"></textarea>
+  <br />
+  <span>(100 Copper = 10 Silver = 2 Electrum = 1 Gold = 1/5 Platinum)</span><br />
   <hr>
   <h4>Henchmen/Animal Companions</h4>
   <table style="border-collapse: collapse; border-spacing: 0;">
@@ -812,6 +838,7 @@
   <textarea name="attr_henchnotesarea" class="sheet-full-page-textbox"></textarea>
 </div>
 
+<!-- SIMPLIFIED COMBAT TAB -->
 <div class="sheet-tab-content sheet-tab2">
   <br />
   <h4>Weapons</h4>

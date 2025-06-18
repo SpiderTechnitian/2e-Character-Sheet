@@ -122,7 +122,9 @@ button:active {
 .charsheet button[type="roll"].sheet-d10-dark,
 .charsheet button[type="roll"].sheet-d12-dark,
 .charsheet button[type="roll"].sheet-d20-dark,
-.charsheet button[type="roll"].sheet-d100-dark {
+.charsheet button[type="roll"].sheet-d100-dark,
+.charsheet button[type="roll"].sheet-send-up-dark,
+.charsheet button[type="roll"].sheet-send-down-dark {
   background-color: #1f1f1f;
   border-color: #3e4446;
   color: #c8c3bc;
@@ -168,6 +170,16 @@ button:active {
   font-family: "dicefontd10";
   content: "0";
 }
+
+.charsheet button[type="roll"].sheet-send-up-dark::before {
+  font-family: "Pictos";
+  content: ""; /* { works*/
+}
+
+.charsheet button[type="roll"].sheet-send-down-dark::before {
+  font-family: "Pictos";
+  content: ""; /* } doesn't work */
+} 
 
 input[type="number"].sheet-tiny::-webkit-inner-spin-button {
   -webkit-appearance: none;
