@@ -597,6 +597,186 @@
     <hr>
   </div>
 
+  <div name="Wealth">
+    <div class="sheet-2colrow">
+      <div class="sheet-col">
+        <h4>Currency on Person</h4>
+        <table>
+          <tr>
+            <th class="sheet-center">Copper</th>
+            <th class="sheet-center">Silver</th>
+            <th class="sheet-center">Electrum</th>
+            <th class="sheet-center">Gold</th>
+            <th class="sheet-center">Platinum</th>
+          </tr>
+          <tr>
+            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center"></td>
+          </tr>
+          <!-- <tr>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓50</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓50</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓50</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓50</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↓50</button></td>
+          </tr> -->
+        </table>
+
+        <br /><br />
+        <h4>Wealth Transfer</h4>
+        <table>
+          <tr>
+             <th>Amount</th>
+             <th>Currency</th>
+             <th></th>
+             <th></th>
+          </tr>
+          <tr>
+            <td><input type="number" name="attr_coin_transfer_amount" class="sheet-nobut sheet-mid"></td>
+            <td><input type="text" list="currency_types" name="attr_coin_transfer_currency" class="sheet-medium"></td>
+            <td><button type="roll" name="transfer_wealth_to_stash" class="sheet-send-up-dark">↓&nbsp;Send</button></td>
+            <td><button type="roll" name="transfer_wealth_to_person" class="sheet-send-up-dark">↑&nbsp;Send</button></td>
+          </tr>
+        </table>
+        <datalist id="currency_types">
+          <option value="Copper"></option>
+          <option value="Silver"></option>
+          <option value="Electrum"></option>
+          <option value="Gold"></option>
+          <option value="Platinum"></option>
+        </datalist>
+
+        <br /><br />
+        <h4>Currency in Stash</h4>
+        <table>
+          <tr>
+            <th class="sheet-center">Copper</th>
+            <th class="sheet-center">Silver</th>
+            <th class="sheet-center">Electrum</th>
+            <th class="sheet-center">Gold</th>
+            <th class="sheet-center">Platinum</th>
+          </tr>
+          <tr>
+            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center"></td>
+          </tr>
+          <!-- <tr>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;1cp</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;50cp</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;1sp</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;50sp</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;1ep</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;50ep</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;1gp</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;50gp</button></td>
+            <td><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;1pp</button><button type="roll" name="roll_send_down" class="sheet-send-down-dark">↑&nbsp;50pp</button></td>
+          </tr> -->
+        </table>
+        <br/>
+        <span>(100 Copper = 10 Silver = 2 Electrum = 1 Gold = 1/5 Platinum)</span><br />
+      </div>
+
+      <div class="sheet-col">
+        <h4>Gems, Pearls, and Treasure</h4>
+        <fieldset name="repeating_gems" class="repeating_gems">
+          <table>
+            <tr>
+              <td><input type="text" name="attr_gem_name" class="sheet-cool-name" placeholder="Gem Details"></td>
+              <td><input type="text" name="attr_gem_value" class="sheet-mid" placeholder="Value"></td>
+              <td><input type="text" name="attr_gem_source" class="sheet-medium" placeholder="Source"></td>
+            </tr>
+          </table>
+        </fieldset>
+        <br/>
+        <span>Other Items Of Value</span><br />
+        <textarea name="attr_otherval" class="sheet-half-page-textbox"></textarea>
+      </div>
+    </div>
+
+
+
+    <!-- <input type="number" name="attr_plat" class="sheet-nobut"> <span>PP</span>
+    <input type="number" name="attr_gold" class="sheet-nobut"> <span>GP</span>
+    <input type="number" name="attr_elec" class="sheet-nobut"> <span>EP</span>
+    <input type="number" name="attr_silv" class="sheet-nobut"> <span>SP</span>
+    <input type="number" name="attr_copp" class="sheet-nobut"> <span>CP</span><br /> -->
+    <!-- <span>Total GP value from gems:</span> <input type="text" name="attr_gemsvalue" class="short">
+    <br /><span>Total GP value from other items:</span> <input type="text" name="attr_othervalue" class="short"><br /><br /> -->
+    
+    
+    
+    
+    <!-- <h4>Currency Conversion Calculator</h4>
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <td class="bluetable">Currency</td>
+        <td class="bluetable">|Quantity</td>
+        <td class="bluetable">|Copper</td>
+        <td class="bluetable">|Silver</td>
+        <td class="bluetable">|Electrum</td>
+        <td class="bluetable">|Gold</td>
+        <td class="bluetable">|Platinum</td>
+      </tr>
+      <tr>
+        <td class="bluetable">Copper</td>
+        <td><input type="number" name="attr_copq" class="sheet-short"/></td>
+        <td><input type="text" name="attr_copcop" class="sheet-short" value="@{copq}*1" disabled="true"/></td>
+        <td><input type="text" name="attr_cops" class="sheet-short" value="@{copq}/10" disabled="true"/></td>
+        <td><input type="text" name="attr_cope" class="sheet-short" value="@{cops}/5" disabled="true"/></td>
+        <td><input type="text" name="attr_copg" class="sheet-short" value="@{cops}/10" disabled="true"/></td>
+        <td><input type="text" name="attr_copp" class="sheet-short" value="@{copg}/5" disabled="true"/></td>
+      </tr>
+      <tr>
+        <td class="bluetable">Silver</td>
+        <td><input type="number" name="attr_sq" class="sheet-short"/></td>
+        <td><input type="text" name="attr_scop" class="sheet-short" value="@{sq}*10" disabled="true"/></td>
+        <td><input type="text" name="attr_ss" class="sheet-short" value="@{sq}*1" disabled="true"/></td>
+        <td><input type="text" name="attr_se" class="sheet-short" value="@{ss}/5" disabled="true"/></td>
+        <td><input type="text" name="attr_sg" class="sheet-short" value="@{ss}/10" disabled="true"/></td>
+        <td><input type="text" name="attr_sp" class="sheet-short" value="@{sg}/5" disabled="true"/></td>
+      </tr>
+      <tr>
+        <td class="bluetable">Electrum</td>
+        <td><input type="number" name="attr_eq" class="sheet-short"/></td>
+        <td><input type="text" name="attr_ecop" class="sheet-short" value="@{es}*10" disabled="true"/></td>
+        <td><input type="text" name="attr_es" class="sheet-short" value="@{eq}*5" disabled="true"/></td>
+        <td><input type="text" name="attr_ee" class="sheet-short" value="@{eq}*1" disabled="true"/></td>
+        <td><input type="text" name="attr_eg" class="sheet-short" value="@{es}/10" disabled="true"/></td>
+        <td><input type="text" name="attr_ep" class="sheet-short" value="@{eg}/5" disabled="true"/></td>
+      </tr>
+      <tr>
+          <td class="bluetable">Gold</td>
+          <td><input type="number" name="attr_gq" class="sheet-short"/></td>
+          <td><input type="text" name="attr_gcop" class="sheet-short" value="@{gq}*100" disabled="true"/></td>
+          <td><input type="text" name="attr_gs" class="sheet-short" value="@{gq}*10" disabled="true"/></td>
+          <td><input type="text" name="attr_ge" class="sheet-short" value="@{gs}/5" disabled="true"/></td>
+          <td><input type="text" name="attr_gg" class="sheet-short" value="@{gq}*1" disabled="true"/></td>
+          <td><input type="text" name="attr_gp" class="sheet-short" value="@{gg}/5" disabled="true"/></td>
+      </tr>
+      <tr>
+          <td class="bluetable">Platinum</td>
+          <td><input type="number" name="attr_pq" class="sheet-short"/></td>
+          <td><input type="text" name="attr_pcop" class="sheet-short" value="@{ps}*10" disabled="true"/></td>
+          <td><input type="text" name="attr_ps" class="sheet-short" value="@{pg}*10" disabled="true"/></td>
+          <td><input type="text" name="attr_pe" class="sheet-short" value="@{ps}/5" disabled="true"/></td>
+          <td><input type="text" name="attr_pg" class="sheet-short" value="@{pq}*5" disabled="true"/></td>
+          <td><input type="text" name="attr_pp" class="sheet-short" value="@{pq}*1" disabled="true"/></td>
+      </tr>
+    </table>
+    <br /> -->
+
+
+    <!-- <span>Gems</span><br />
+    <textarea name="attr_gems" class="sheet-half-page-textbox"></textarea>
+    <span>Other Items Of Value</span><br />
+    <textarea name="attr_otherval"></textarea>
+    <br /> -->
+    <hr>
+  </div>
+
+  
   <div name="Movement and Encumbrance">
     <br/><br/><br/><br/><br/><br/>
     <h4>Movement and Encumbrance</h4>
@@ -733,83 +913,6 @@
       </table>
       <span>Current weight:</span><input type="number" name="attr_movweighttotal" class="sheet-nobut" value="@{totalweightCarry}+1-1" disabled="true">
     </div>
-    <hr>
-  </div>
-
-  <div name="Wealth">
-    <h4>Wealth</h4>
-    <br />
-    <input type="number" name="attr_plat" class="sheet-nobut"> <span>PP</span>
-    <input type="number" name="attr_gold" class="sheet-nobut"> <span>GP</span>
-    <input type="number" name="attr_elec" class="sheet-nobut"> <span>EP</span>
-    <input type="number" name="attr_silv" class="sheet-nobut"> <span>SP</span>
-    <input type="number" name="attr_copp" class="sheet-nobut"> <span>CP</span><br />
-    <span>Total GP value from gems:</span> <input type="text" name="attr_gemsvalue" class="short">
-    <br /><span>Total GP value from other items:</span> <input type="text" name="attr_othervalue" class="short"><br /><br />
-    <h4>Currency Conversion Calculator</h4>
-    <table style="border-collapse: collapse; border-spacing: 0;">
-      <tr>
-        <td class="bluetable">Currency</td>
-        <td class="bluetable">|Quantity</td>
-        <td class="bluetable">|Copper</td>
-        <td class="bluetable">|Silver</td>
-        <td class="bluetable">|Electrum</td>
-        <td class="bluetable">|Gold</td>
-        <td class="bluetable">|Platinum</td>
-      </tr>
-      <tr>
-        <td class="bluetable">Copper</td>
-        <td><input type="number" name="attr_copq" class="sheet-short"/></td>
-        <td><input type="text" name="attr_copcop" class="sheet-short" value="@{copq}*1" disabled="true"/></td>
-        <td><input type="text" name="attr_cops" class="sheet-short" value="@{copq}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_cope" class="sheet-short" value="@{cops}/5" disabled="true"/></td>
-        <td><input type="text" name="attr_copg" class="sheet-short" value="@{cops}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_copp" class="sheet-short" value="@{copg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-        <td class="bluetable">Silver</td>
-        <td><input type="number" name="attr_sq" class="sheet-short"/></td>
-        <td><input type="text" name="attr_scop" class="sheet-short" value="@{sq}*10" disabled="true"/></td>
-        <td><input type="text" name="attr_ss" class="sheet-short" value="@{sq}*1" disabled="true"/></td>
-        <td><input type="text" name="attr_se" class="sheet-short" value="@{ss}/5" disabled="true"/></td>
-        <td><input type="text" name="attr_sg" class="sheet-short" value="@{ss}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_sp" class="sheet-short" value="@{sg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-        <td class="bluetable">Electrum</td>
-        <td><input type="number" name="attr_eq" class="sheet-short"/></td>
-        <td><input type="text" name="attr_ecop" class="sheet-short" value="@{es}*10" disabled="true"/></td>
-        <td><input type="text" name="attr_es" class="sheet-short" value="@{eq}*5" disabled="true"/></td>
-        <td><input type="text" name="attr_ee" class="sheet-short" value="@{eq}*1" disabled="true"/></td>
-        <td><input type="text" name="attr_eg" class="sheet-short" value="@{es}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_ep" class="sheet-short" value="@{eg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-          <td class="bluetable">Gold</td>
-          <td><input type="number" name="attr_gq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_gcop" class="sheet-short" value="@{gq}*100" disabled="true"/></td>
-          <td><input type="text" name="attr_gs" class="sheet-short" value="@{gq}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_ge" class="sheet-short" value="@{gs}/5" disabled="true"/></td>
-          <td><input type="text" name="attr_gg" class="sheet-short" value="@{gq}*1" disabled="true"/></td>
-          <td><input type="text" name="attr_gp" class="sheet-short" value="@{gg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-          <td class="bluetable">Platinum</td>
-          <td><input type="number" name="attr_pq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_pcop" class="sheet-short" value="@{ps}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_ps" class="sheet-short" value="@{pg}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_pe" class="sheet-short" value="@{ps}/5" disabled="true"/></td>
-          <td><input type="text" name="attr_pg" class="sheet-short" value="@{pq}*5" disabled="true"/></td>
-          <td><input type="text" name="attr_pp" class="sheet-short" value="@{pq}*1" disabled="true"/></td>
-      </tr>
-    </table>
-    <br />
-    <span>Gems</span><br />
-    <textarea name="attr_gems" class="sheet-half-page-textbox"></textarea>
-    <span>Other Items Of Value</span><br />
-    <textarea name="attr_otherval"></textarea>
-    <br />
-    <span>(100 Copper = 10 Silver = 2 Electrum = 1 Gold = 1/5 Platinum)</span><br />
     <hr>
   </div>
 
