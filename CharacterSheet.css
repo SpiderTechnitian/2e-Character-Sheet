@@ -7,6 +7,9 @@
   background-color: #17191a;
   border-color: #3e4446;
   display: inline-block;
+}
+
+.charsheet input.sheet-generic {
   width: 165px;
 }
 
@@ -17,8 +20,26 @@
   resize: none;
 }
 
-/* to resize would need to swap from fixed units for width and height */
+.charsheet select {
+  color: #c8c3bc;
+  background-color: #17191a;
+  border-color: #3e4446;
+  display: inline-block;
+  width: 115px;
+  margin-bottom: 0;
+}
 
+/* to resize would need to swap from fixed units for width and height */
+.gear-container{
+  .repitem:has(.stash-check:checked){
+    display: none !important;
+  }
+}
+.stash-container{
+  .repitem:has(.stash-check:not(:checked)){
+    display: none !important;
+  }
+}
 .charsheet textarea.sheet-half-page-textbox {
   width: 370px !important;
   height: 90px !important;
@@ -54,22 +75,12 @@
 }
 
 .bluetable {
-  /* background-color: #26ade4; */
   background-color: #14479a;
   color: #fff;
   font-weight: bold;
-}
-
-.bluetableflex {
-  /* background-color: #26ade4; */
-  background-color: #14479a;
-  color: #fff;
-  font-weight: bold;
-  display: flex;
 }
 
 .charsheet th {
-  /* background-color: #26ade4; */
   background-color: #14479a;
   color: #fff;
   font-weight: bold;
@@ -124,8 +135,15 @@ button:hover,
 button:active {
   background-image: none;
 }
-
 /* background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6); current button gradient effect from ".btn, .btn.btn-default"()*/
+
+.charsheet button.btn.repcontrol_add,
+.charsheet button.btn.repcontrol_edit {
+  background-image: none !important;
+  background-color: #1f1f1f !important;
+  border-color: #3e4446 !important;
+  color: #c8c3bc !important;
+}
 
 .charsheet button[type="roll"].sheet-spell-dark,
 .charsheet button[type="roll"].sheet-book-dark,
@@ -137,6 +155,7 @@ button:active {
 .charsheet button[type="roll"].sheet-d100-dark,
 .charsheet button[type="roll"].sheet-send-up-dark,
 .charsheet button[type="roll"].sheet-send-down-dark {
+  background-image: none; /* light gradient applied default unless hovered */
   background-color: #1f1f1f;
   border-color: #3e4446;
   color: #c8c3bc;
@@ -193,6 +212,8 @@ button:active {
   content: ""; /* } doesn't work */
 } 
 
+/* This removes the little up and down arrow in the right of the number input field, as well as disables scroll wheel editing the input */
+/* Might require some margin: none / 0 type thing */
 input[type="number"].sheet-tiny::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
@@ -238,11 +259,11 @@ input[type="number"].sheet-nobut::-webkit-inner-spin-button {
   width: 7.2em;
 }
 
-.charsheet input[type="checkbox"].left {
+/* .charsheet input[type="checkbox"].left {
   float: left;
   margin: 5px 0px;
   width: 2px;
-}
+} */
 input.sheet-arrow {
   float: left;
 }
@@ -251,8 +272,10 @@ input.sheet-arrow:checked ~ div.sheet-body {
   display: none;
 }
 /* Hide actual radio/checkbox */
-input[type="radio"],
-input[type="checkbox"] {
+/* input[type="radio"],
+input[type="checkbox"] { */
+
+input[type="radio"] {
   opacity: 0;
   width: 16px;
   height: 16px;
@@ -263,6 +286,59 @@ input[type="checkbox"] {
   cursor: pointer;
   z-index: 1;
 }
+
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: #17191a;
+  border: 2px solid #3e4446;
+
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox::before {
+  content: none;
+  /* content: ''; */
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border-radius: 16px;
+  border: solid red;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.custom-checkbox:checked::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 8px;
+  border: solid green;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* input[type="checkbox"]::before {
+  content:"";
+  display: block;
+  margin: 0 auto;
+  border: solid 1px #3e4446;
+  background: #17191a;
+  background-color: red;
+  border-color: green;
+  color:pink;
+  width: 2em;
+} */
+
 
 .charsheet div.sheet-tab-content {
   display: none;
