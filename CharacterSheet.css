@@ -153,8 +153,8 @@ button:active {
 .charsheet button[type="roll"].sheet-d12-dark,
 .charsheet button[type="roll"].sheet-d20-dark,
 .charsheet button[type="roll"].sheet-d100-dark,
-.charsheet button[type="roll"].sheet-send-up-dark,
-.charsheet button[type="roll"].sheet-send-down-dark {
+.charsheet button[type="action"].sheet-send-up-dark,
+.charsheet button[type="action"].sheet-send-down-dark {
   background-image: none; /* light gradient applied default unless hovered */
   background-color: #1f1f1f;
   border-color: #3e4446;

@@ -608,16 +608,16 @@
             <th class="sheet-center">Platinum</th>
           </tr>
           <tr>
-            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
           </tr>
         </table>
 
         <br /><br />
-        <h4>Transfer Person &lt;-&gt; Stash</h4>
+        <h4>Transfer between Person & Stash</h4>
         <table>
           <tr>
              <th>Amount</th>
@@ -634,8 +634,8 @@
               <option value="Gold">Gold</option>
               <option value="Platinum">Platinum</option>
             </select></td>
-            <td><button type="roll" name="transfer_wealth_to_stash" class="sheet-send-up-dark">↓&nbsp;Send</button></td>
-            <td><button type="roll" name="transfer_wealth_to_person" class="sheet-send-up-dark">↑&nbsp;Send</button></td>
+            <td><button type="action" name="act_currency_from_person_to_stash" class="sheet-send-up-dark">↓&nbsp;Send</button></td>
+            <td><button type="action" name="act_currency_from_stash_to_person" class="sheet-send-up-dark">↑&nbsp;Send</button></td>
           </tr>
         </table>
         <datalist id="currency_types">
@@ -657,11 +657,11 @@
             <th class="sheet-center">Platinum</th>
           </tr>
           <tr>
-            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center"></td>
-            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center"></td>
+            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
           </tr>
         </table>
         <br/>
@@ -4178,6 +4178,87 @@ var TAS = TAS || (function(){
 			})
 			.execute(); //<-- cause all the above to run.
 	});
+
+  on("clicked:currency_from_person_to_stash", function() {
+    console.log("Sending currency down");
+    getAttrs(["copp", "silv", "elec", "gold", "plat","coin_transfer_amount", "coin_transfer_currency", "stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
+      const transfer_amount = parseInt(values.coin_transfer_amount);
+      switch(values.coin_transfer_currency) {
+        case "Copper":
+          if (transfer_amount <= parseInt(values.copp)) {
+            setAttrs({copp:(values.copp - transfer_amount)});
+            setAttrs({stash_copp: (parseInt(values.stash_copp) + transfer_amount)});
+          }
+          break;
+        case "Silver":
+          if (transfer_amount <= parseInt(values.silv)) {
+            setAttrs({silv:(values.silv - transfer_amount)});
+            setAttrs({stash_silv: (parseInt(values.stash_silv) + transfer_amount)});
+          }
+          break;
+        case "Electrum":
+          if (transfer_amount <= parseInt(values.elec)) {
+            setAttrs({elec:(values.elec - transfer_amount)});
+            setAttrs({stash_elec: (parseInt(values.stash_elec) + transfer_amount)});
+          }
+          break;
+        case "Gold":
+          if (transfer_amount <= parseInt(values.gold)) {
+            setAttrs({gold:(values.gold - transfer_amount)});
+            setAttrs({stash_gold: (parseInt(values.stash_gold) + transfer_amount)});
+          }
+          break;
+        case "Platinum":
+          if (transfer_amount <= parseInt(values.plat)) {
+            setAttrs({plat:(values.plat - transfer_amount)});
+            setAttrs({stash_plat: (parseInt(values.stash_plat) + transfer_amount)});
+          }
+          break;
+        default:
+          console.log("Person -> Stash switch failure.");
+      }
+    });
+  });
+
+  on("clicked:currency_from_stash_to_person", function() {
+    getAttrs(["copp", "silv", "elec", "gold", "plat","coin_transfer_amount", "coin_transfer_currency", "stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
+      const transfer_amount = parseInt(values.coin_transfer_amount);
+      switch(values.coin_transfer_currency) {
+        case "Copper":
+          if (transfer_amount <= parseInt(values.stash_copp)) {
+            setAttrs({stash_copp:(values.stash_copp - transfer_amount)});
+            setAttrs({copp: (parseInt(values.copp) + transfer_amount)});
+          }
+          break;
+        case "Silver":
+          if (transfer_amount <= parseInt(values.stash_silv)) {
+            setAttrs({stash_silv:(values.stash_silv - transfer_amount)});
+            setAttrs({silv: (parseInt(values.silv) + transfer_amount)});
+          }
+          break;
+        case "Electrum":
+          if (transfer_amount <= parseInt(values.stash_elec)) {
+            setAttrs({stash_elec:(values.stash_elec - transfer_amount)});
+            setAttrs({elec: (parseInt(values.elec) + transfer_amount)});
+          }
+          break;
+        case "Gold":
+          if (transfer_amount <= parseInt(values.stash_gold)) {
+            setAttrs({stash_gold:(values.stash_gold - transfer_amount)});
+            setAttrs({gold: (parseInt(values.gold) + transfer_amount)});
+          }
+          break;
+        case "Platinum":
+          if (transfer_amount <= parseInt(values.stash_plat)) {
+            setAttrs({stash_plat:(values.stash_plat - transfer_amount)});
+            setAttrs({plat: (parseInt(values.plat) + transfer_amount)});
+          }
+          break;
+        default:
+          console.log("Stash -> Person switch failure.");
+      }
+    });
+  });
 
 
 	/* sort out total gearweight */
