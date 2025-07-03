@@ -362,7 +362,10 @@ input[type="radio"] {
 .charsheet input.sheet-tab10:checked ~ div.sheet-tab10,
 .charsheet input.sheet-tab11:checked ~ div.sheet-tab11,
 .charsheet input.sheet-tab12:checked ~ div.sheet-tab12,
-.charsheet input.sheet-tab13:checked ~ div.sheet-tab13 {
+.charsheet input.sheet-tab13:checked ~ div.sheet-tab13,
+.charsheet input.sheet-tab14:checked ~ div.sheet-tab14,
+.charsheet input.sheet-tab15:checked ~ div.sheet-tab15,
+.charsheet input.sheet-tab16:checked ~ div.sheet-tab16 {
   display: block;
 }
 .charsheet input.sheet-tab + span::before {

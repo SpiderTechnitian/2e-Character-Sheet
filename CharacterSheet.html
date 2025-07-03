@@ -143,7 +143,7 @@
     <hr>
   </div>
 
-  <!-- Ability Scores get attr_tab-3 and sheet-tab-5, sheet-tab-6 for standard / skills & powers tables -->
+  <!-- Ability Scores get attr_tab3 and sheet-tab5, sheet-tab6 for standard / skills & powers tables -->
   <div name="Ability Scores">
     <h4>Ability Scores</h4>
     <table style="border-collapse: collapse; border-spacing: 0;">
@@ -357,8 +357,22 @@
         <br/>
         <div class="sheet-2colrow">
             <div class="sheet-col">
-                <span>Spellbook:</span><br />
+              <input type="radio" name="attr_tab7" class="sheet-tab sheet-tab13" value="1" checked="checked"> <span class="span">Spellbook&nbsp;&nbsp;&nbsp;</span>
+              <input type="radio" name="attr_tab7" class="sheet-tab sheet-tab14" value="2"> <span>Loadout 1&nbsp;&nbsp;&nbsp;</span>
+              <input type="radio" name="attr_tab7" class="sheet-tab sheet-tab15" value="3"> <span>Loadout 2&nbsp;&nbsp;&nbsp;</span>
+              <input type="radio" name="attr_tab7" class="sheet-tab sheet-tab16" value="4"> <span>Loadout 3</span>
+              <div class="sheet-tab-content sheet-tab13">
                 <textarea name="attr_spellbook" class="sheet-half-page-textbox" placeholder="Spells you have access to which aren't listed above"></textarea>
+              </div>
+              <div class="sheet-tab-content sheet-tab14">
+                <textarea name="attr_spell_loadout_1" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+              </div>
+              <div class="sheet-tab-content sheet-tab15">
+                <textarea name="attr_spell_loadout_2" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+              </div>
+              <div class="sheet-tab-content sheet-tab16">
+                <textarea name="attr_spell_loadout_3" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+              </div>
             </div>
             <div class="sheet-col">
                 <span>Spells Memorized:</span><br />
