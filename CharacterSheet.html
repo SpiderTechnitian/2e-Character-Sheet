@@ -107,14 +107,14 @@
         <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab3" value="0"/><span>Show Log&nbsp;&nbsp;</span>
         <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab0" value="1" checked="checked"/><span>Hide Log&nbsp;&nbsp;</span>
         <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab4" value="2"/><span>Multiclass</span><br />
-        
+
         <div class="sheet-tab-content sheet-tab3">
-          <fieldset name="repeating_experience" class="repeating_experience">
+          <fieldset class="repeating_experience">
             <input type="text" name="attr_xp_item_amount" style="width: 4.5em" placeholder="XP"><input type="text" name="attr_xp_item_description" style="width: 24em" placeholder="How was it earned?">
           </fieldset>
           <br/>
-          <span>Total:</span><input type="text" name="attr_xp_item_total" style="width: 4.5em; cursor: pointer;" value="123" readonly>
-          <span>Total with <input type="number" name="attr_xp_prime_requisite_multiplier" value="10" class="sheet-tinier">% bonus: <input type="text" name="attr_xp_item_total" style="width: 4.5em; cursor: pointer;" value="135" readonly></span>
+          <span>Total:</span><input type="text" name="attr_xp_item_total" style="width: 4.5em; cursor: pointer;" value="0" readonly>
+          <span>Total with <input type="number" name="attr_xp_prime_requisite_multiplier" value="10" class="sheet-tinier">% bonus: <input type="text" name="attr_xp_prime_requisite_total" style="width: 4.5em; cursor: pointer;" value="0" readonly></span>
         </div>
 
         <div class="sheet-tab-content sheet-tab4">
@@ -357,11 +357,11 @@
         <br/>
         <div class="sheet-2colrow">
             <div class="sheet-col">
-                <span>Spellbook:</span>
+                <span>Spellbook:</span><br />
                 <textarea name="attr_spellbook" class="sheet-half-page-textbox" placeholder="Spells you have access to which aren't listed above"></textarea>
             </div>
             <div class="sheet-col">
-                <span>Spells Memorized:</span>
+                <span>Spells Memorized:</span><br />
                 <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image"></textarea><br/>
                 <button type="roll" name="send_spells_memorized" class="sheet-book-dark" value="Spells memorized today:\n@{spells_memorized}">&nbsp;Share memorized spells to chat</button>
             </div>
@@ -684,73 +684,6 @@
         <textarea name="attr_otherval" class="sheet-half-page-textbox"></textarea>
       </div>
     </div>
-
-
-    <!-- <h4>Currency Conversion Calculator</h4>
-    <table style="border-collapse: collapse; border-spacing: 0;">
-      <tr>
-        <td class="bluetable">Currency</td>
-        <td class="bluetable">|Quantity</td>
-        <td class="bluetable">|Copper</td>
-        <td class="bluetable">|Silver</td>
-        <td class="bluetable">|Electrum</td>
-        <td class="bluetable">|Gold</td>
-        <td class="bluetable">|Platinum</td>
-      </tr>
-      <tr>
-        <td class="bluetable">Copper</td>
-        <td><input type="number" name="attr_copq" class="sheet-short"/></td>
-        <td><input type="text" name="attr_copcop" class="sheet-short" value="@{copq}*1" disabled="true"/></td>
-        <td><input type="text" name="attr_cops" class="sheet-short" value="@{copq}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_cope" class="sheet-short" value="@{cops}/5" disabled="true"/></td>
-        <td><input type="text" name="attr_copg" class="sheet-short" value="@{cops}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_copp" class="sheet-short" value="@{copg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-        <td class="bluetable">Silver</td>
-        <td><input type="number" name="attr_sq" class="sheet-short"/></td>
-        <td><input type="text" name="attr_scop" class="sheet-short" value="@{sq}*10" disabled="true"/></td>
-        <td><input type="text" name="attr_ss" class="sheet-short" value="@{sq}*1" disabled="true"/></td>
-        <td><input type="text" name="attr_se" class="sheet-short" value="@{ss}/5" disabled="true"/></td>
-        <td><input type="text" name="attr_sg" class="sheet-short" value="@{ss}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_sp" class="sheet-short" value="@{sg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-        <td class="bluetable">Electrum</td>
-        <td><input type="number" name="attr_eq" class="sheet-short"/></td>
-        <td><input type="text" name="attr_ecop" class="sheet-short" value="@{es}*10" disabled="true"/></td>
-        <td><input type="text" name="attr_es" class="sheet-short" value="@{eq}*5" disabled="true"/></td>
-        <td><input type="text" name="attr_ee" class="sheet-short" value="@{eq}*1" disabled="true"/></td>
-        <td><input type="text" name="attr_eg" class="sheet-short" value="@{es}/10" disabled="true"/></td>
-        <td><input type="text" name="attr_ep" class="sheet-short" value="@{eg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-          <td class="bluetable">Gold</td>
-          <td><input type="number" name="attr_gq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_gcop" class="sheet-short" value="@{gq}*100" disabled="true"/></td>
-          <td><input type="text" name="attr_gs" class="sheet-short" value="@{gq}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_ge" class="sheet-short" value="@{gs}/5" disabled="true"/></td>
-          <td><input type="text" name="attr_gg" class="sheet-short" value="@{gq}*1" disabled="true"/></td>
-          <td><input type="text" name="attr_gp" class="sheet-short" value="@{gg}/5" disabled="true"/></td>
-      </tr>
-      <tr>
-          <td class="bluetable">Platinum</td>
-          <td><input type="number" name="attr_pq" class="sheet-short"/></td>
-          <td><input type="text" name="attr_pcop" class="sheet-short" value="@{ps}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_ps" class="sheet-short" value="@{pg}*10" disabled="true"/></td>
-          <td><input type="text" name="attr_pe" class="sheet-short" value="@{ps}/5" disabled="true"/></td>
-          <td><input type="text" name="attr_pg" class="sheet-short" value="@{pq}*5" disabled="true"/></td>
-          <td><input type="text" name="attr_pp" class="sheet-short" value="@{pq}*1" disabled="true"/></td>
-      </tr>
-    </table>
-    <br /> -->
-
-
-    <!-- <span>Gems</span><br />
-    <textarea name="attr_gems" class="sheet-half-page-textbox"></textarea>
-    <span>Other Items Of Value</span><br />
-    <textarea name="attr_otherval"></textarea>
-    <br /> -->
     <hr>
   </div>
 
@@ -4176,9 +4109,30 @@ var TAS = TAS || (function(){
         setAttrs({on_person_weight_total: (m.on_person_weight)});
         setAttrs({in_stash_weight_total: (m.in_stash_weight)});
 			})
-			.execute(); //<-- cause all the above to run.
+			.execute();
 	});
 
+  /* Calculate running experience total */
+  on('change:repeating_experience:xp_item_amount', function() {
+    TAS.repeating('experience')
+      .fields('xp_item_amount')
+      .reduce(function(m,r){
+        m.xp += parseInt(r.xp_item_amount);
+        return m;
+      },{xp:0},function(m,r,a) {
+        setAttrs({xp_item_total: (m.xp)});
+    })
+    .execute();
+  });
+
+  /* Calculate prime requisite experience total */
+  on("change:xp_item_total change:xp_prime_requisite_multiplier", function() {
+    getAttrs(["xp_item_total", "xp_prime_requisite_multiplier"], function(values) {
+      setAttrs({xp_prime_requisite_total: Math.round(parseInt(values.xp_item_total) * (1 + parseInt(values.xp_prime_requisite_multiplier) / 100))});
+    });
+  });
+
+  /* Transfer currency from person to stash */
   on("clicked:currency_from_person_to_stash", function() {
     console.log("Sending currency down");
     getAttrs(["copp", "silv", "elec", "gold", "plat","coin_transfer_amount", "coin_transfer_currency", "stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
@@ -4220,6 +4174,7 @@ var TAS = TAS || (function(){
     });
   });
 
+  /* Transfer currency from stash to person */
   on("clicked:currency_from_stash_to_person", function() {
     getAttrs(["copp", "silv", "elec", "gold", "plat","coin_transfer_amount", "coin_transfer_currency", "stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
       const transfer_amount = parseInt(values.coin_transfer_amount);
@@ -4260,39 +4215,4 @@ var TAS = TAS || (function(){
     });
   });
 
-
-	/* sort out total gearweight */
-	on('change:repeating_gear:gearweigh change:gearweigh', function(){
-		TAS.repeating('gear')  //<-- The repeating section name
-			.attrs('gearweigh','gearweighttotal')  //<-- the attributes outside the repeating section
-			.fields('gearweigh') //<-- the field (attribute) inside the repeating section
-			.reduce(function(m,r){
-				m.weigh+=r.F.gearweigh; //<-- sum up the ones in the repeating section
-				return m;
-			},{weigh:0},function(m,r,a){
-				a.D[2].gearweighttotal = a.F.gearweigh + m.weigh;  //<-- add the sum and the outside attribute and store it.
-			})
-			.execute(); //<-- cause all the above to run.
-	});
-	
-	/* sort out total weapweight */
-	on('change:repeating_weapons:weapweight change:weapweight', function(){
-		TAS.repeating('weapons')  //<-- The repeating section name
-			.attrs('weapweight','weapweighttotal')  //<-- the attributes outside the repeating section
-			.fields('weapweight') //<-- the field (attribute) inside the repeating section
-			.reduce(function(m,r){
-				m.weigh+=r.F.weapweight; //<-- sum up the ones in the repeating section
-				return m;
-			},{weigh:0},function(m,r,a){
-				a.D[2].weapweighttotal = a.F.weapweight + m.weigh;  //<-- add the sum and the outside attribute and store it.
-			})
-			.execute(); //<-- cause all the above to run.
-	});
-	
-	on('change:gearweighttotal change:weapweighttotal', function() {
-		getAttrs(["gearweighttotal", "weapweighttotal"], function(values) {
-		//setAttrs({ totalweightCarry: (parseFloat(values.gearweighttotal)+parseFloat(values.weapweighttotal)).toFixed(2)});
-		setAttrs({ totalweightCarry: (values.gearweighttotal)});
-	  });
-	});
 </script>
