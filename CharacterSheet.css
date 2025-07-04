@@ -70,6 +70,9 @@
 .charsheet input[type="number"].sheet-center {
   text-align: center;
 }
+.charsheet input[type="text"].sheet-center {
+  text-align: center;
+}
 .charsheet hr {
   border-color: #c8c3bc !important;
 }
@@ -87,7 +90,13 @@
   padding: 3px;
 }
 
-.charsheet th.sheet-center {
+.charsheet th.sheet-center,
+.charsheet td.sheet-center {
+  text-align: center;
+}
+
+.charsheet th.sheet-temp-buffs {
+  width: 65px;
   text-align: center;
 }
 
@@ -223,7 +232,7 @@ input[type="number"].sheet-nobut::-webkit-inner-spin-button {
 
 .charsheet select.sheet-tiny {
   display: inline-block;
-  width: 2em;
+  width: 3em;
 }
 
 .charsheet select.sheet-short {
@@ -362,7 +371,10 @@ input[type="radio"] {
 .charsheet input.sheet-tab10:checked ~ div.sheet-tab10,
 .charsheet input.sheet-tab11:checked ~ div.sheet-tab11,
 .charsheet input.sheet-tab12:checked ~ div.sheet-tab12,
-.charsheet input.sheet-tab13:checked ~ div.sheet-tab13 {
+.charsheet input.sheet-tab13:checked ~ div.sheet-tab13,
+.charsheet input.sheet-tab14:checked ~ div.sheet-tab14,
+.charsheet input.sheet-tab15:checked ~ div.sheet-tab15,
+.charsheet input.sheet-tab16:checked ~ div.sheet-tab16 {
   display: block;
 }
 .charsheet input.sheet-tab + span::before {
