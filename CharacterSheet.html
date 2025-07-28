@@ -646,8 +646,8 @@
         <table style="border-collapse: collapse; border-spacing: 0;">
           <tr>
             <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
-            <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
-            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" value="1"></td>
+            <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
             <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" style="cursor: default;" readonly></td>
             <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
             <td><input type="checkbox" name="attr_stashed" class="stash-check custom-checkbox" style="height: 19.2px; width: 19.2px; margin-left: 20px;" value="1"></td>
@@ -676,8 +676,8 @@
         <table style="border-collapse: collapse; border-spacing: 0;">
           <tr>
             <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
-            <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
-            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" value="1"></td>
+            <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
             <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" style="cursor: default;" readonly></td>
             <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
             <td><input type="checkbox" name="attr_stashed" class="stash-check custom-checkbox" style="height: 19.2px; width: 19.2px; margin-left: 20px;" value="1"></td>
@@ -706,13 +706,15 @@
             <th class="sheet-center">Electrum</th>
             <th class="sheet-center">Gold</th>
             <th class="sheet-center">Platinum</th>
+            <th class="sheet-center">(Weight)</th>
           </tr>
           <tr>
-            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_currency_weight" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"  style="cursor: default;" readonly></td>
           </tr>
         </table>
 
@@ -755,13 +757,15 @@
             <th class="sheet-center">Electrum</th>
             <th class="sheet-center">Gold</th>
             <th class="sheet-center">Platinum</th>
+            <th class="sheet-center">(Weight)</th>
           </tr>
           <tr>
-            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_currency_weight" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"  style="cursor: default;" readonly></td>
           </tr>
         </table>
         <br/>
@@ -932,7 +936,7 @@
         <th class="bluetable">Name</th>
         <th class="bluetable">AC</th>
         <th class="bluetable">Race/Class</th>
-        <th class="bluetable">HD/Lvl</th>
+        <th class="bluetable">Lvl/HD</th>
         <th class="bluetable">#Atks</th>
         <th class="bluetable">Atk +</th>
         <th class="bluetable">Dmg</th>
@@ -4278,17 +4282,22 @@ var TAS = TAS || (function(){
      }); //end getAttrs
     }); //end on("change:Charisma")
 
+  /* Encumbrance weights will be rounded to two decimals
+  function round(num) {
+    return Math.round(num * 100) / 100;
+  }
+
   /* Sort out on-person and in-stash weight */
   /* Relatively expensive to iterate through all gear each time any changes are made, so update everything within a single iteration at cost of readability */
 	on('change:repeating_gear:gearquantity change:repeating_gear:gearweigh change:repeating_gear:stashed', function(){
 		TAS.repeating('gear')
 			.fields('gearquantity','gearweigh','geartotal','stashed')
 			.reduce(function(m,r){
-        r.geartotal = r.F.gearquantity * r.F.gearweigh;
+        r.geartotal = round(r.F.gearquantity * r.F.gearweigh);
         if (r.stashed == 1) {
-          m.in_stash_weight += r.F.gearquantity * r.F.gearweigh;
+          m.in_stash_weight += r.geartotal;
         } else {
-          m.on_person_weight += r.F.gearquantity * r.F.gearweigh;
+          m.on_person_weight += r.geartotal;
         }
 				return m;
 			},{on_person_weight:0,in_stash_weight:0},function(m,r,a){
@@ -4297,6 +4306,30 @@ var TAS = TAS || (function(){
 			})
 			.execute();
 	});
+
+  /* Sort out on-person currency weight */
+	on('change:copp change:silv change:elec change:gold change:plat', function(){
+    getAttrs(["copp", "silv", "elec", "gold", "plat"], function(values) {
+      let total_coins = 0;
+      for (let coin in values) {
+        total_coins += parseInt(values[coin]);
+      }
+      const weight_of_coin = 0.02;
+      setAttrs({currency_weight: Math.ceil(total_coins * weight_of_coin)});
+    });
+  });
+
+  /* Sort out in-stash currency weight */
+	on('change:stash_copp change:stash_silv change:stash_elec change:stash_gold change:stash_plat', function(){
+    getAttrs(["stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
+      let total_coins = 0;
+      for (let coin in values) {
+        total_coins += parseInt(values[coin]);
+      }
+      const weight_of_coin = 0.02;
+      setAttrs({stash_currency_weight: Math.ceil(total_coins * weight_of_coin)});
+    });
+  });
 
   /* Calculate running experience total */
   on('change:repeating_experience:xp_item_amount', function() {
@@ -4455,7 +4488,7 @@ var TAS = TAS || (function(){
     });
   });
 
-  /* Handle temporary Recitation buff */
+  /* Handle temporary Recitation buff (our players are never same faith for +3 buff) */
   on('change:temp_recitation', function() {
     getAttrs(["temp_recitation","temp_attack","temp_damage","temp_saving_throws"], function(values) {
       if (values.temp_recitation == 1) {
