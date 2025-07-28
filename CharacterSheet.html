@@ -39,22 +39,35 @@
         </table>
         <span>Armor Type:</span><br />
         <textarea name="attr_armtype" class="sheet-half-page-textbox-thin"></textarea>
+
         <table>
           <tr>
             <td><hr></td>
             <td><hr></td>
+            <td><hr></td>            
+            <td><hr></td>
+            <td><hr></td>
+            <td><hr></td>
           </tr>
           <tr>
-            <td><b>Height: <input type="text" name="attr_Height" class="sheet-short" /></b><br />
-                <b>Weight:<input type="text" name="attr_Weight" class="sheet-short" /></b>
-            </td>
-            <td><b>Age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type="number" name="attr_Age" class="sheet-short" /></b>   <br />
-                <b>Max age:&nbsp;<input type="text" name="attr_Agemax" class="sheet-short" /></b>
-            </td>
+            <td><b>Height:</b></td>
+            <td><input type="text" name="attr_Height" class="sheet-short"/></td>
+            <td><b>&nbsp;Starting Age:</b></td>
+            <td><input type="number" name="attr_Age" class="sheet-short"/></td>
+            <td><b>&nbsp;Magical Aging:</b></td>
+            <td><input type="text" name="attr_magical_aging" class="sheet-short"></td>
           </tr>
           <tr>
-            <td><b>Handedness:<input type="text" name="attr_Handedness" class="sheet-generic" placeholder="1-8=right, 9=left, 10=ambi"/></b></td>
+            <td><b>Weight:</b></td>
+            <td><input type="text" name="attr_Weight" class="sheet-short"/></td>
+            <td><b>&nbsp;Birthday:</b></td>
+            <td><input type="text" name="attr_birthday" class="sheet-short" placeholder="xx/xx"/></td>
+            <td><b>&nbsp;Current Age:</b></td>
+            <td><input type="text" name="attr_current_age" class="sheet-short"/></td>
           </tr>
+        </table>
+        <table>
+          <tr><td><b>Handedness:<input type="text" name="attr_Handedness" class="sheet-generic" placeholder="1-8=right, 9=left, 10=ambi"/></b></td></tr>
         </table>
       </div>
       <div class="sheet-col">
@@ -104,21 +117,30 @@
 
         <br />
         <h4>Experience Log</h4>
-        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab3" value="0"/><span>Show Log&nbsp;&nbsp;</span>
-        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab0" value="1" checked="checked"/><span>Hide Log&nbsp;&nbsp;</span>
-        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab4" value="2"/><span>Multiclass</span><br />
+        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab0" value="0" checked="checked"/><span>Hide Log&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab3" value="1"/><span>Class A Log&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab4" value="2"/><span>Class B Log&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab2" class="sheet-tab sheet-tab5" value="3"/><span>Old System</span><br />
 
         <div class="sheet-tab-content sheet-tab3">
-          <fieldset class="repeating_experience">
-            <input type="text" name="attr_xp_item_amount" style="width: 4.5em" placeholder="XP"><input type="text" name="attr_xp_item_description" style="width: 24em" placeholder="How was it earned?">
+          <fieldset name="repeating_experienceA" class="repeating_experienceA">
+            <input type="text" name="attr_xp_item_amountA" style="width: 4.5em" placeholder="XP"><input type="text" name="attr_xp_item_descriptionA" style="width: 24em" placeholder="How was it earned?">
           </fieldset>
           <br/>
-          <span>Total:</span><input type="text" name="attr_xp_item_total" style="width: 4.5em; cursor: pointer;" value="0" readonly>
-          <span>Total with <input type="number" name="attr_xp_prime_requisite_multiplier" value="10" class="sheet-tinier">% bonus: <input type="text" name="attr_xp_prime_requisite_total" style="width: 4.5em; cursor: pointer;" value="0" readonly></span>
+          <span>Total:</span><input type="text" name="attr_xp_item_totalA" style="width: 4.5em; cursor: pointer;" value="0" readonly>
+          <span>Total with <input type="number" name="attr_xp_prime_requisite_multiplierA" value="10" class="sheet-tinier">% bonus: <input type="text" name="attr_xp_prime_requisite_totalA" style="width: 4.5em; cursor: pointer;" value="0" readonly></span>
         </div>
 
         <div class="sheet-tab-content sheet-tab4">
-          <span>I haven't added multiclass to the log yet, so use this old one for now lmao</span>
+          <fieldset name="repeating_experienceB" class="repeating_experienceB">
+            <input type="text" name="attr_xp_item_amountB" style="width: 4.5em" placeholder="XP"><input type="text" name="attr_xp_item_descriptionB" style="width: 24em" placeholder="How was it earned?">
+          </fieldset>
+          <br/>
+          <span>Total:</span><input type="text" name="attr_xp_item_totalB" style="width: 4.5em; cursor: pointer;" value="0" readonly>
+          <span>Total with <input type="number" name="attr_xp_prime_requisite_multiplierB" value="10" class="sheet-tinier">% bonus: <input type="text" name="attr_xp_prime_requisite_totalB" style="width: 4.5em; cursor: pointer;" value="0" readonly></span>
+        </div>
+
+        <div class="sheet-tab-content sheet-tab5">
           <fieldset class="repeating_XP" name="attr_repxp">
             <table>
               <tr>
@@ -143,7 +165,6 @@
     <hr>
   </div>
 
-  <!-- Ability Scores get attr_tab3 and sheet-tab5, sheet-tab6 for standard / skills & powers tables -->
   <div name="Ability Scores">
     <h4>Ability Scores</h4>
     <table style="border-collapse: collapse; border-spacing: 0;">
@@ -285,11 +306,11 @@
               <th class="sheet-center">Ability<br/>Checks</th>
             </tr>
             <tr>
-              <td><input type="text" name="attr_temp_attack" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_damage" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_initiative" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_saving_throws" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_ability_checks" class="sheet-mid sheet-center" value="+0"></td>
+              <td><input type="text" name="attr_temp_attack" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_damage" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_initiative" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_saving_throws" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_ability_checks" class="sheet-mid sheet-center" value="0"></td>
             </tr>
           </table>
         </div>
@@ -475,7 +496,15 @@
       <input type="radio" name="attr_tab5" class="sheet-tab sheet-tab9" value="1" checked="checked"> <span>Show Rogue Skills</span>
       <input type="radio" name="attr_tab5" class="sheet-tab sheet-tab0" value="2"> <span>Hide Rogue Skills</span><br />
       <div class="sheet-tab-content sheet-tab9">
-          <span><strong>Backstab Multiplier:</strong></span><input type="text" name="attr_backstabmultiplier" class="sheet-tiny">
+          <span><strong>Backstab Multiplier:</strong></span>
+          <select name="attr_backstab_multiplier" class="sheet-medium">
+            <option value="0">1x: (Not a thief)</option>
+            <option value="2">2x: Thief level 1-4</option>
+            <option value="3">3x: Thief level 5-8</option>
+            <option value="4">4x: Thief level 9-12</option>
+            <option value="5">5x: Thief level 13+</option>
+          </select>
+
           <table style="border-collapse: collapse; border-spacing: 0;">
               <tr>
                   <th class="bluetable">Skill</th>
@@ -646,8 +675,8 @@
         <table style="border-collapse: collapse; border-spacing: 0;">
           <tr>
             <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
-            <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
-            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" value="1"></td>
+            <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
             <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" style="cursor: default;" readonly></td>
             <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
             <td><input type="checkbox" name="attr_stashed" class="stash-check custom-checkbox" style="height: 19.2px; width: 19.2px; margin-left: 20px;" value="1"></td>
@@ -676,8 +705,8 @@
         <table style="border-collapse: collapse; border-spacing: 0;">
           <tr>
             <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
-            <td><input type="number" name="attr_gearquantity" class="sheet-short" value="1"></td>
-            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" value="1"></td>
+            <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
             <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" style="cursor: default;" readonly></td>
             <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
             <td><input type="checkbox" name="attr_stashed" class="stash-check custom-checkbox" style="height: 19.2px; width: 19.2px; margin-left: 20px;" value="1"></td>
@@ -706,13 +735,15 @@
             <th class="sheet-center">Electrum</th>
             <th class="sheet-center">Gold</th>
             <th class="sheet-center">Platinum</th>
+            <th class="sheet-center">(Weight)</th>
           </tr>
           <tr>
-            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_copp" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_silv" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_elec" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_gold" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_plat" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_currency_weight" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"  style="cursor: default;" readonly></td>
           </tr>
         </table>
 
@@ -755,13 +786,15 @@
             <th class="sheet-center">Electrum</th>
             <th class="sheet-center">Gold</th>
             <th class="sheet-center">Platinum</th>
+            <th class="sheet-center">(Weight)</th>
           </tr>
           <tr>
-            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
-            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center" value="0"></td>
+            <td><input type="number" name="attr_stash_copp" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_silv" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_elec" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_gold" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_plat" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"></td>
+            <td><input type="number" name="attr_stash_currency_weight" class="sheet-nobut sheet-mid sheet-center" min="0" value="0"  style="cursor: default;" readonly></td>
           </tr>
         </table>
         <br/>
@@ -932,7 +965,7 @@
         <th class="bluetable">Name</th>
         <th class="bluetable">AC</th>
         <th class="bluetable">Race/Class</th>
-        <th class="bluetable">HD/Lvl</th>
+        <th class="bluetable">Lvl/HD</th>
         <th class="bluetable">#Atks</th>
         <th class="bluetable">Atk +</th>
         <th class="bluetable">Dmg</th>
@@ -988,11 +1021,11 @@
               <th class="sheet-center">Ability<br/>Checks</th>
             </tr>
             <tr>
-              <td><input type="text" name="attr_temp_attack" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_damage" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_initiative" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_saving_throws" class="sheet-mid sheet-center" value="+0"></td>
-              <td><input type="text" name="attr_temp_ability_checks" class="sheet-mid sheet-center" value="+0"></td>
+              <td><input type="text" name="attr_temp_attack" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_damage" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_initiative" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_saving_throws" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_ability_checks" class="sheet-mid sheet-center" value="0"></td>
             </tr>
           </table>
         </div>
@@ -4278,17 +4311,22 @@ var TAS = TAS || (function(){
      }); //end getAttrs
     }); //end on("change:Charisma")
 
+  /* Encumbrance weights will be rounded to two decimals
+  function round(num) {
+    return Math.round(num * 100) / 100;
+  }
+
   /* Sort out on-person and in-stash weight */
   /* Relatively expensive to iterate through all gear each time any changes are made, so update everything within a single iteration at cost of readability */
 	on('change:repeating_gear:gearquantity change:repeating_gear:gearweigh change:repeating_gear:stashed', function(){
 		TAS.repeating('gear')
 			.fields('gearquantity','gearweigh','geartotal','stashed')
 			.reduce(function(m,r){
-        r.geartotal = r.F.gearquantity * r.F.gearweigh;
+        r.geartotal = round(r.F.gearquantity * r.F.gearweigh);
         if (r.stashed == 1) {
-          m.in_stash_weight += r.F.gearquantity * r.F.gearweigh;
+          m.in_stash_weight += r.geartotal;
         } else {
-          m.on_person_weight += r.F.gearquantity * r.F.gearweigh;
+          m.on_person_weight += r.geartotal;
         }
 				return m;
 			},{on_person_weight:0,in_stash_weight:0},function(m,r,a){
@@ -4298,23 +4336,67 @@ var TAS = TAS || (function(){
 			.execute();
 	});
 
-  /* Calculate running experience total */
-  on('change:repeating_experience:xp_item_amount', function() {
-    TAS.repeating('experience')
-      .fields('xp_item_amount')
+  /* Sort out on-person currency weight */
+	on('change:copp change:silv change:elec change:gold change:plat', function(){
+    getAttrs(["copp", "silv", "elec", "gold", "plat"], function(values) {
+      let total_coins = 0;
+      for (let coin in values) {
+        total_coins += parseInt(values[coin]);
+      }
+      const weight_of_coin = 0.02;
+      setAttrs({currency_weight: Math.ceil(total_coins * weight_of_coin)});
+    });
+  });
+
+  /* Sort out in-stash currency weight */
+	on('change:stash_copp change:stash_silv change:stash_elec change:stash_gold change:stash_plat', function(){
+    getAttrs(["stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
+      let total_coins = 0;
+      for (let coin in values) {
+        total_coins += parseInt(values[coin]);
+      }
+      const weight_of_coin = 0.02;
+      setAttrs({stash_currency_weight: Math.ceil(total_coins * weight_of_coin)});
+    });
+  });
+
+  /* Calculate running experience total for class A */
+  on('change:repeating_experienceA:xp_item_amountA', function() {
+    TAS.repeating('experienceA')
+      .fields('xp_item_amountA')
       .reduce(function(m,r){
-        m.xp += parseInt(r.xp_item_amount);
+        m.xp += parseInt(r.xp_item_amountA);
         return m;
       },{xp:0},function(m,r,a) {
-        setAttrs({xp_item_total: (m.xp)});
+        setAttrs({xp_item_totalA: (m.xp)});
     })
     .execute();
   });
 
   /* Calculate prime requisite experience total */
-  on("change:xp_item_total change:xp_prime_requisite_multiplier", function() {
-    getAttrs(["xp_item_total", "xp_prime_requisite_multiplier"], function(values) {
-      setAttrs({xp_prime_requisite_total: Math.round(parseInt(values.xp_item_total) * (1 + parseInt(values.xp_prime_requisite_multiplier) / 100))});
+  on("change:xp_item_totalA change:xp_prime_requisite_multiplierA", function() {
+    getAttrs(["xp_item_totalA", "xp_prime_requisite_multiplierA"], function(values) {
+      setAttrs({xp_prime_requisite_totalA: Math.round(parseInt(values.xp_item_totalA) * (1 + parseInt(values.xp_prime_requisite_multiplierA) / 100))});
+    });
+  });
+
+  /* Calculate running experience total for class B*/
+  on('change:repeating_experienceB:xp_item_amountB', function() {
+    TAS.repeating('experienceB')
+      .fields('xp_item_amountB')
+      .reduce(function(m,r){
+        m.xp += parseInt(r.xp_item_amountB);
+        return m;
+      },{xp:0},function(m,r,a) {
+        setAttrs({xp_item_totalB: (m.xp)});
+    })
+    .execute();
+  });
+
+  /* Calculate prime requisite experience total for class B */
+  on("change:xp_item_totalB change:xp_prime_requisite_multiplierB", function() {
+    getAttrs(["xp_item_totalB", "xp_prime_requisite_multiplierB"], function(values) {
+      setAttrs({xp_prime_requisite_totalB: Math.round(parseInt(values.xp_item_totalB) * (1 + parseInt(values.xp_prime_requisite_multiplierB) / 100))});
     });
   });
 
@@ -4455,7 +4537,7 @@ var TAS = TAS || (function(){
     });
   });
 
-  /* Handle temporary Recitation buff */
+  /* Handle temporary Recitation buff (our players are never same faith for +3 buff) */
   on('change:temp_recitation', function() {
     getAttrs(["temp_recitation","temp_attack","temp_damage","temp_saving_throws"], function(values) {
       if (values.temp_recitation == 1) {
