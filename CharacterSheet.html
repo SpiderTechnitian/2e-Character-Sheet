@@ -53,7 +53,7 @@
             <td><b>Height:</b></td>
             <td><input type="text" name="attr_Height" class="sheet-short"/></td>
             <td><b>&nbsp;Starting Age:</b></td>
-            <td><input type="number" name="attr_Age" class="sheet-short"/></td>
+            <td><input type="text" name="attr_Age" class="sheet-short"/></td>
             <td><b>&nbsp;Magical Aging:</b></td>
             <td><input type="text" name="attr_magical_aging" class="sheet-short"></td>
           </tr>
@@ -155,7 +155,7 @@
                 <td><b>Prime Req Exp Total:<br /><input type="text" name="attr_expprime" value="@{expcurrent1}+(@{expgain1}*(1+(@{prime1}/100)))" disabled="true"></b></td>
               </tr>
               <tr>
-                <td><b>Prime Requisite Bonus:</b><br /><input type="text" name="attr_prime1" class="short" value="10">%</td>
+                <td><b>Prime Requisite Bonus:</b><br /><input type="text" name="attr_prime1" class="sheet-short" value="10">%</td>
               </tr>
             </table>
           </fieldset>
@@ -497,7 +497,7 @@
       <input type="radio" name="attr_tab5" class="sheet-tab sheet-tab0" value="2"> <span>Hide Rogue Skills</span><br />
       <div class="sheet-tab-content sheet-tab9">
           <span><strong>Backstab Multiplier:</strong></span>
-          <select name="attr_backstab_multiplier" class="sheet-medium">
+          <select name="attr_backstab_multiplier" style="width: 150px;">
             <option value="0">1x: (Not a thief)</option>
             <option value="2">2x: Thief level 1-4</option>
             <option value="3">3x: Thief level 5-8</option>
@@ -1180,6 +1180,24 @@
         <textarea name="attr_spellbook" class="sheet-half-page-textbox" placeholder="Spells you have access to which aren't listed above"></textarea>
       </div>
       <div class="sheet-col">
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab13" value="1" checked="checked"> <span class="span">Spellbook&nbsp;&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab14" value="2"> <span>Loadout 1&nbsp;&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab15" value="3"> <span>Loadout 2&nbsp;&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab16" value="4"> <span>Loadout 3</span>
+        <div class="sheet-tab-content sheet-tab13">
+          <textarea name="attr_spellbook" class="sheet-half-page-textbox" placeholder="Spells you have access to which aren't listed above"></textarea>
+        </div>
+        <div class="sheet-tab-content sheet-tab14">
+          <textarea name="attr_spell_loadout_1" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+        </div>
+        <div class="sheet-tab-content sheet-tab15">
+          <textarea name="attr_spell_loadout_2" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+        </div>
+        <div class="sheet-tab-content sheet-tab16">
+          <textarea name="attr_spell_loadout_3" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+        </div>
+      </div>
+      <div class="sheet-col">
         <span>Spells Memorized:</span>
         <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image"></textarea><br/>
         <button type="roll" name="send_spells_memorized" class="sheet-book-dark" value="Spells memorized today:\n@{spells_memorized}"> Share memorized spells to chat</button>
@@ -1214,7 +1232,7 @@
 <!-- MONSTER SHEET TAB -->
 <div name="Monster Sheet Tab" class="sheet-tab-content sheet-tab9">
   <h2>Monster Info</h2>
-  <h4>Name:</h4>
+  <h4>Name: <input type="text" name="attr_character_name"></h4>
   <input type="text" name="attr_character_name">
   <div class="body">
     <div class="sheet-3colrow">
@@ -1222,35 +1240,35 @@
         <table>
           <tr>
             <td><b>Climate/Terrain:</b></td>
-            <td><input type="text" name="attr_climateterrain"></td>
+            <td><input type="text" name="attr_climateterrain" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Frequency:</b></td>
-            <td><input type="text" name="attr_frequency"></td>
+            <td><input type="text" name="attr_frequency" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Organization:</b></td>
-            <td><input type="text" name="attr_organization"></td>
+            <td><input type="text" name="attr_organization" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Activity Cycle:</b></td>
-            <td><input type="text" name="attr_cycle"></td>
+            <td><input type="text" name="attr_cycle" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Diet:</b></td>
-            <td><input type="text" name="attr_diet"></td>
+            <td><input type="text" name="attr_diet" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Intelligence:</b></td>
-            <td><input type="text" name="attr_monsterintelligence"></td>
+            <td><input type="text" name="attr_monsterintelligence" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Treasure:</b></td>
-            <td><input type="text" name="attr_treasure"></td>
+            <td><input type="text" name="attr_treasure" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Alignment:</b></td>
-            <td><input type="text" name="attr_monsteralignment"></td>
+            <td><input type="text" name="attr_monsteralignment" class="sheet-generic"></td>
           </tr>
         </table>
       </div>
@@ -1258,35 +1276,35 @@
         <table>
           <tr>
             <td><b>No. Appearing:</b></td>
-            <td><input type="text" name="attr_appearing" class="short"></td>
+            <td><input type="text" name="attr_appearing" class="sheet-short"></td>
           </tr>
           <tr>
             <td><b>Armor Class:</b></td>
-            <td><input type="text" name="attr_monsterarmor" class="short"></td>
+            <td><input type="text" name="attr_monsterarmor" class="sheet-short"></td>
           </tr>
           <tr>
             <td><b>Movement:</b></td>
-            <td><input type="text" name="attr_movement" class="medium"></td>
+            <td><input type="text" name="attr_movement" class="sheet-medium"></td>
           </tr>
           <tr>
             <td><b>Hit Dice:</b></td>
-            <td><input type="text" name="attr_hitdice" s="short"></td>
+            <td><input type="text" name="attr_hitdice" class="sheet-short"></td>
           </tr>
           <tr>
             <td><b>THAC0:</b></td>
-            <td><input type="text" name="attr_monsterthac0" class="short"></td>
+            <td><input type="text" name="attr_monsterthac0" class="sheet-short"></td>
           </tr>
           <tr>
             <td><b>No. of Attacks:</b></td>
-            <td><input type="text" name="attr_monsteratknum" class="tiny"></td>
+            <td><input type="text" name="attr_monsteratknum" class="sheet-tiny"></td>
           </tr>
           <tr>
             <td><b>Damage/Attack:</b></td>
-            <td><input type="text" name="attr_monsterdmg"></td>
+            <td><input type="text" name="attr_monsterdmg" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Special Attacks:</b></td>
-            <td><input type="text" name="attr_monsterspecattacks"></td>
+            <td><input type="text" name="attr_monsterspecattacks" class="sheet-generic"></td>
           </tr>
         </table>
       </div>
@@ -1294,23 +1312,23 @@
         <table>
           <tr>
             <td><b>Special Defenses:</b></td>
-            <td><input type="text" name="attr_monsterspecdefenses"></td>
+            <td><input type="text" name="attr_monsterspecdefenses" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>Magic Resistance:</b></td>
-            <td><input type="text" name="attr_monstermagicresist" class="short">%</td>
+            <td><input type="text" name="attr_monstermagicresist" class="sheet-short">%</td>
           </tr>
           <tr>
             <td><b>Size:</b></td>
-            <td><input type="text" name="attr_monstersize" class="tiny"></td>
+            <td><input type="text" name="attr_monstersize" class="sheet-tiny"></td>
           </tr>
           <tr>
             <td><b>Morale:</b></td>
-            <td><input type="text" name="attr_monstermorale"></td>
+            <td><input type="text" name="attr_monstermorale" class="sheet-generic"></td>
           </tr>
           <tr>
             <td><b>XP Value:</b></td>
-            <td><input type="text" name="attr_monsterxp"></td>
+            <td><input type="text" name="attr_monsterxp" class="sheet-generic"></td>
           </tr>
         </table>
       </div>
@@ -1328,41 +1346,41 @@
     <br />
     <h3>Variants</h3>
     <fieldset class="repeating_monstervariants" name="monstervariants">
-      <input type="text" name="attr_variantname">
+      <input type="text" name="attr_variantname" class="sheet-generic">
       <div class="sheet-3colrow">
         <div class="sheet-col">
           <table>
             <tr>
               <td><b>Climate/Terrain:</b></td>
-              <td><input type="text" name="attr_climateterrain"></td>
+              <td><input type="text" name="attr_climateterrain" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Frequency:</b></td>
-              <td><input type="text" name="attr_frequency"></td>
+              <td><input type="text" name="attr_frequency" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Organization:</b></td>
-              <td><input type="text" name="attr_organization"></td>
+              <td><input type="text" name="attr_organization" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Activity Cycle:</b></td>
-              <td><input type="text" name="attr_cycle"></td>
+              <td><input type="text" name="attr_cycle" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Diet:</b></td>
-              <td><input type="text" name="attr_diet"></td>
+              <td><input type="text" name="attr_diet" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Intelligence:</b></td>
-              <td><input type="text" name="attr_monsterintelligence"></td>
+              <td><input type="text" name="attr_monsterintelligence" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Treasure:</b></td>
-              <td><input type="text" name="attr_treasure"></td>
+              <td><input type="text" name="attr_treasure" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Alignment:</b></td>
-              <td><input type="text" name="attr_monsteralignment"></td>
+              <td><input type="text" name="attr_monsteralignment" class="sheet-generic"></td>
             </tr>
           </table>
         </div>
@@ -1370,35 +1388,35 @@
           <table>
             <tr>
               <td><b>No. Appearing:</b></td>
-              <td><input type="text" name="attr_appearing" class="short"></td>
+              <td><input type="text" name="attr_appearing" class="sheet-short"></td>
             </tr>
             <tr>
               <td><b>Armor Class:</b></td>
-              <td><input type="text" name="attr_monsterarmor" class="short"></td>
+              <td><input type="text" name="attr_monsterarmor" class="sheet-short"></td>
             </tr>
             <tr>
               <td><b>Movement:</b></td>
-              <td><input type="text" name="attr_movement" class="medium"></td>
+              <td><input type="text" name="attr_movement" class="sheet-medium"></td>
             </tr>
             <tr>
               <td><b>Hit Dice:</b></td>
-              <td><input type="text" name="attr_hitdice" class="short"></td>
+              <td><input type="text" name="attr_hitdice" class="sheet-short"></td>
             </tr>
             <tr>
               <td><b>THAC0:</b></td>
-              <td><input type="text" name="attr_monsterthac0" class="short"></td>
+              <td><input type="text" name="attr_monsterthac0" class="sheet-short"></td>
             </tr>
             <tr>
               <td><b>No. of Attacks:</b></td>
-              <td><input type="text" name="attr_monsteratknum" class="tiny"></td>
+              <td><input type="text" name="attr_monsteratknum" class="sheet-tiny"></td>
             </tr>
             <tr>
               <td><b>Damage/Attack:</b></td>
-              <td><input type="text" name="attr_monsterdmg"></td>
+              <td><input type="text" name="attr_monsterdmg" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Special Attacks:</b></td>
-              <td><input type="text" name="attr_monsterspecattacks"></td>
+              <td><input type="text" name="attr_monsterspecattacks" class="sheet-generic"></td>
             </tr>
           </table>
         </div>
@@ -1406,23 +1424,23 @@
           <table>
             <tr>
               <td><b>Special Defenses:</b></td>
-              <td><input type="text" name="attr_monsterspecdefenses"></td>
+              <td><input type="text" name="attr_monsterspecdefenses" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>Magic Resistance:</b></td>
-              <td><input type="text" name="attr_monstermagicresist" class="short">%</td>
+              <td><input type="text" name="attr_monstermagicresist" class="sheet-short">%</td>
             </tr>
             <tr>
               <td><b>Size:</b></td>
-              <td><input type="text" name="attr_monstersize" class="tiny"></td>
+              <td><input type="text" name="attr_monstersize" class="sheet-tiny"></td>
             </tr>
             <tr>
               <td><b>Morale:</b></td>
-              <td><input type="text" name="attr_monstermorale"></td>
+              <td><input type="text" name="attr_monstermorale" class="sheet-generic"></td>
             </tr>
             <tr>
               <td><b>XP Value:</b></td>
-              <td><input type="text" name="attr_monsterxp"></td>
+              <td><input type="text" name="attr_monsterxp" class="sheet-generic"></td>
             </tr>
           </table>
         </div>
