@@ -406,7 +406,7 @@
             <td><input type="text" name="attr_range" class="sheet-mid2"></td>
             <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
             <td><input type="text" name="attr_Weaptype" class="sheet-tiny"></td>
-            <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
+            <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
         </tr>
     </table>
     <fieldset name="repeating_weapons" class="repeating_weapons">
@@ -422,7 +422,7 @@
                 <td><input type="text" name="attr_range" class="sheet-mid2"></td>
                 <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
                 <td><input type="text" name="attr_weaptype" class="sheet-tiny"></td>
-                <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
+                <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
             </tr>
         </table>
     </fieldset>
@@ -1121,7 +1121,7 @@
         <td><input type="text" name="attr_range" class="sheet-mid2"></td>
         <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
         <td><input type="text" name="attr_Weaptype" class="sheet-tiny"></td>
-        <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/roll 1d10+[[@{weapspeed}]] [Initiative (@{weaponname})]&{tracker}"></button></td>
+        <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
       </tr>
     </table>
     <fieldset name="repeating_weapons" class="repeating_weapons">
@@ -1137,7 +1137,7 @@
           <td><input type="text" name="attr_range" class="sheet-mid2"></td>
           <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
           <td><input type="text" name="attr_weaptype" class="sheet-tiny"></td>
-          <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/roll 1d10+[[@{weapspeed}?{Misc. bonus (please include + or -)|+0}]] [Initiative (@{weaponname})]&{tracker}"></button></td>
+          <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
         </tr>
       </table>
     </fieldset>
@@ -1229,7 +1229,6 @@
 <div name="Monster Sheet Tab" class="sheet-tab-content sheet-tab9">
   <h2>Monster Info</h2>
   <h4>Name: <input type="text" name="attr_character_name"></h4>
-  <input type="text" name="attr_character_name">
   <div class="body">
     <div class="sheet-3colrow">
       <div class="sheet-col">
