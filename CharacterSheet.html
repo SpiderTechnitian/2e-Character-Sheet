@@ -1,8 +1,22 @@
 <!DOCTYPE html>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked"/><span>Character Sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"/><span>Simplified Combat Sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab9" value="3"/><span>Monster Sheet</span>
-<br />
+<input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab1" value="1" checked="checked" id="character_radio"/>
+<input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab2" value="2" id="combat_radio"/>
+<input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab18" value="4" id="inventory_radio"/>
+<input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab19" value="5" id="quick_reference_radio"/>
+<input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab9" value="3" id="monster_radio"/>
+<!-- <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked" id="character_radio"/><span>Character Sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"/><span>Combat Sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab18" value="4"/><span>Inventory&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab19" value="5"/><span>Quick Reference&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<input type="radio" name="attr_tab" class="sheet-tab sheet-tab9" value="3"/><span>Monster Sheet</span> -->
+
+<div class="tab-label-container">
+  <label class="tab-label" for="character_radio">CHARACTER SHEET</label>
+  <label class="tab-label" for="combat_radio">COMBAT</label>
+  <label class="tab-label" for="inventory_radio">INVENTORY</label>
+  <label class="tab-label" for="quick_reference_radio">QUICK REFERENCE</label>
+  <label class="tab-label" for="monster_radio">MONSTER SHEET</label>
+</div>
 
 <!-- CHARACTER SHEET TAB -->
 <div name="Character Sheet Tab" class="sheet-tab-content sheet-tab1">
@@ -179,7 +193,7 @@
             <th class="bluetable">Bend Bars,<br />Lift Gate</th>
         </tr>
         <tr>
-            <th class="bluetable">Strength<button type="roll" name="roll_strcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Strength}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Strength Ability Check]" style="float: right;"></button></th>
+            <th class="bluetable">Strength<button type="roll" name="roll_strcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Strength}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Strength Ability Check]" style="float: right;"></button></th>
             <td><input type="text" name="attr_Strength" class="sheet-short" value=""/></td>
             <td><input type="text" name="attr_strengthhit" class="sheet-short" value="+0"/></td>
             <td><input type="text" name="attr_strengthdmg" class="sheet-short" value="+0"/></td>
@@ -199,7 +213,7 @@
             <th class="bluetable"></th>
         </tr>
         <tr>
-            <th class="bluetable">Dexterity<button type="roll" name="roll_dexcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Dexterity}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Dexterity Ability Check]" style="float: right;"></button></th>
+            <th class="bluetable">Dexterity<button type="roll" name="roll_dexcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Dexterity}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Dexterity Ability Check]" style="float: right;"></button></th>
             <td><input type="text" name="attr_Dexterity" class="sheet-short" value=""/></td>
             <td><input type="text" name="attr_dexreact" class="sheet-short" value="+0"/></td>
             <td><input type="text" name="attr_dexmissile" class="sheet-short" value="+0"/></td>
@@ -216,7 +230,7 @@
             <th class="bluetable"></th>
         </tr>
         <tr>
-            <th class="bluetable">Constitution<button type="roll" name="roll_concheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Constitution}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Constitution Ability Check]" style="float: right;"></button></th>
+            <th class="bluetable">Constitution<button type="roll" name="roll_concheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Constitution}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Constitution Ability Check]" style="float: right;"></button></th>
             <td><input type="text" name="attr_Constitution" class="sheet-short" value=""/></td>
             <td><input type="text" name="attr_conadj" class="sheet-short" value="+0"/></td>
             <td><input type="text" name="attr_conshock" class="sheet-short" value="0"/></td>
@@ -235,7 +249,7 @@
             <th class="bluetable"> </th>
         </tr>
         <tr>
-            <th class="bluetable">Intelligence<button type="roll" name="roll_intcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Intelligence}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Intelligence Ability Check]" style="float: right;"></button></th>
+            <th class="bluetable">Intelligence<button type="roll" name="roll_intcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Intelligence}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Intelligence Ability Check]" style="float: right;"></button></th>
             <td><input type="text" name="attr_Intelligence" class="sheet-short" value=""/></td>
             <td><input type="text" name="attr_intlang" class="sheet-short" value="0"/></td>
             <td><input type="text" name="attr_intlvl" class="sheet-short" value="0"/></td>
@@ -255,7 +269,7 @@
             <th class="bluetable"> </th>
         </tr>
         <tr>
-            <th class="bluetable">Wisdom<button type="roll" name="roll_wischeck" class="sheet-d20-dark" value="/roll {1d20+[[@{Wisdom}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Wisdom Ability Check]" style="float: right;"></button></th>
+            <th class="bluetable">Wisdom<button type="roll" name="roll_wischeck" class="sheet-d20-dark" value="/roll {1d20+[[@{Wisdom}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Wisdom Ability Check]" style="float: right;"></button></th>
             <td><input type="text" name="attr_Wisdom" class="sheet-short" value=""/></td>
             <td><input type="text" name="attr_wisdef" class="sheet-short" value="+0"/></td>
             <td><input type="text" name="attr_wisbonus" class="sheet-short" value="None"/></td>
@@ -275,7 +289,7 @@
             <th class="bluetable"> </th>
         </tr>
         <tr>
-            <th class="bluetable">Charisma<button type="roll" name="roll_chacheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Charisma}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Charisma Ability Check]" style="float: right;"></button></th>
+            <th class="bluetable">Charisma<button type="roll" name="roll_chacheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Charisma}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Charisma Ability Check]" style="float: right;"></button></th>
             <td><input type="text" name="attr_Charisma" class="sheet-short" value=""/></td>
             <td><input type="text" name="attr_chamax" class="sheet-short" value="0"/></td>
             <td><input type="text" name="attr_chaloy" class="sheet-short" value="+0"/></td>
@@ -658,6 +672,274 @@
     <hr>
   </div>
 
+  <div name="Henchmen/Animal Companions">
+    <h4>Henchmen/Animal Companions</h4>
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <th class="bluetable">Name</th>
+        <th class="bluetable">AC</th>
+        <th class="bluetable">Race/Class</th>
+        <th class="bluetable">Lvl/HD</th>
+        <th class="bluetable">#Atks</th>
+        <th class="bluetable">Atk +</th>
+        <th class="bluetable">Dmg</th>
+        <th class="bluetable">HP</th>
+        <th class="bluetable">Notes</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="attr_henchname" class="sheet-generic"></td>
+        <td><input type="text" name="attr_henchac" class="sheet-short"></td>
+        <td><input type="text" name="attr_henchrace" class="sheet-generic"></td>
+        <td><input type="text" name="attr_henchlvl" class="sheet-short"></td>
+        <td><input type="text" name="attr_henchatknum" class="sheet-short"></td>
+        <td><input type="text" name="attr_henchthac" class="sheet-short"></td>
+        <td><input type="text" name="attr_henchdmg" class="sheet-short"></td>
+        <td><input type="number" name="attr_henchhp" class="sheet-nobut"/>/<input type="number" name="attr_henchhpmax" class="sheet-nobut"/></td>
+        <td><input type="text" name="attr_henchnotes" class="sheet-generic"></td>
+      </tr>
+    </table>
+    <fieldset name="repeating_hench" class="repeating_hench">
+      <table>
+        <tr>
+          <td><input type="text" name="attr_henchname" class="sheet-generic"></td>
+          <td><input type="text" name="attr_henchac" class="sheet-short"></td>
+          <td><input type="text" name="attr_henchrace" class="sheet-generic"></td>
+          <td><input type="text" name="attr_henchlvl" class="sheet-short"></td>
+          <td><input type="text" name="attr_henchatknum" class="sheet-short"></td>
+          <td><input type="text" name="attr_henchthac" class="sheet-short"></td>
+          <td><input type="text" name="attr_henchdmg" class="sheet-short"></td>
+          <td><input type="number" name="attr_henchhp" class="sheet-nobut"/>/<input type="number" name="attr_henchhpmax" class="sheet-nobut" /></td>
+          <td><input type="text" name="attr_henchnotes" class="sheet-generic"></td>
+        </tr>
+      </table>
+    </fieldset>
+    <br />
+    <span>Companion Notes</span><br/>
+    <textarea name="attr_henchnotesarea" class="sheet-full-page-textbox"></textarea>
+  </div>
+</div>
+
+<!-- SIMPLIFIED COMBAT TAB -->
+<div name="Simplified Combat Tab" class="sheet-tab-content sheet-tab2">
+  <div name="Temporary Buffs">
+      <br />
+      <div class="sheet-2colrow">
+        <div class="sheet-col">
+          <h4>Temporary Buffs</h4>
+          <table>
+            <tr>
+              <th class="sheet-center">Attack</th>
+              <th class="sheet-center">Damage</th>
+              <th class="sheet-center">Initiative</th>
+              <th class="sheet-center">Saving<br/>Throws</th>
+              <th class="sheet-center">Ability<br/>Checks</th>
+            </tr>
+            <tr>
+              <td><input type="text" name="attr_temp_attack" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_damage" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_initiative" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_saving_throws" class="sheet-mid sheet-center" value="0"></td>
+              <td><input type="text" name="attr_temp_ability_checks" class="sheet-mid sheet-center" value="0"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="sheet-col">
+          <table>
+            <tr>
+              <th>
+                <input type="checkbox" name="attr_temp_bless" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Bless</span>
+              </th>
+              <th>
+                <input type="checkbox" name="attr_temp_bard_attack" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Bard Attack</span>
+              </th>
+              <th>
+                <input type="checkbox" name="attr_temp_haste" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Haste</span>              
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <input type="checkbox" name="attr_temp_chant" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Chant</span>
+              </th>
+              <th>
+                <input type="checkbox" name="attr_temp_bard_save" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Bard Saves</span>
+              </th>
+              <th>
+                <input type="checkbox" name="attr_temp_faerie_fire" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Faerie Fire </span><select name="attr_temp_faerie_fire_bonus" class="sheet-tiny" style="height:19.2px; padding-top:0; padding-bottom:0;">
+                                          <option value="1">1</option><option value="2">2</option></select>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <input type="checkbox" name="attr_temp_prayer" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Prayer</span>
+              </th>
+              <th>
+                <input type="checkbox" name="attr_temp_aid" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Aid</span>
+              </th>
+              <th>
+                <input type="checkbox" name="attr_temp_enlarge" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Enlarge </span><select name="attr_temp_enlarge_level" class="sheet-tiny" style="height:19.2px; padding-top:0; padding-bottom:0; float:right;">
+                                      <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+                                      <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+                                      <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                                      <option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option>
+                                    </select>
+                <input type="number" name="attr_enlarge_bonus" value="1" style="display: none;">
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <input type="checkbox" name="attr_temp_recitation" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
+                <span>Recitation</span>
+              </th>
+              <th></th>
+              <th></th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    <hr>
+  </div>
+
+  <div name="Simplified Weapons">
+    <h4>Weapons</h4>
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <th class="bluetable">Weapon</th>
+        <th class="bluetable"># Atks</th>
+        <th class="bluetable">Atk +</th>
+        <th class="bluetable">Dam +</th>
+        <th class="bluetable">Swing</th>
+        <th class="bluetable">Dam SM</th>
+        <th class="bluetable">Dam L</th>
+        <th class="bluetable">Range</th>
+        <th class="bluetable">Size</th>
+        <th class="bluetable">Type</th>
+        <th class="bluetable">Speed</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="attr_weaponname" class="sheet-cool-name"></td>
+        <td><input type="text" name="attr_attacknum" class="sheet-short"></td>
+        <td><input type="text" name="attr_attackadj" class="sheet-short" value="+0"></td>
+        <td><input type="text" name="attr_damadj" class="sheet-short" value="+0"></td>
+        <td><button type="roll" name="roll_hit1" class="sheet-d20-dark" value="/em hits AC [[1d20+(@{PC_ATKBONUS}[Level])+(@{attackadj}[Atk Adjust])+(@{strengthhit}[Str Bonus])+(@{temp_attack}[Temp])]] with @{weaponname}">Hit</button></td>
+        <td><input type="text" name="attr_damsm" class="sheet-short"><button type="roll" name="roll_damsm" class="sheet-d8-dark" value="/em rolls [[@{damsm}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
+        <td><input type="text" name="attr_daml" class="sheet-short"><button type="roll" name="roll_daml" class="sheet-d12-dark" value="/em rolls [[@{daml}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
+        <td><input type="text" name="attr_range" class="sheet-mid2"></td>
+        <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
+        <td><input type="text" name="attr_Weaptype" class="sheet-tiny"></td>
+        <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
+      </tr>
+    </table>
+    <fieldset name="repeating_weapons" class="repeating_weapons">
+      <table style="border-collapse: collapse; border-spacing: 0;">
+        <tr>
+          <td><input type="text" name="attr_weaponname" class="sheet-cool-name"></td>
+          <td><input type="text" name="attr_attacknum" class="sheet-short"></td>
+          <td><input type="text" name="attr_attackadj" class="sheet-short" value="+0"></td>
+          <td><input type="text" name="attr_damadj" class="sheet-short" value="+0"></td>
+          <td><button type="roll" name="roll_hit1" class="sheet-d20-dark" value="/em hits AC [[1d20+(@{PC_ATKBONUS}[Level])+(@{attackadj}[Atk Adjust])+(@{strengthhit}[Str Bonus])+(@{temp_attack}[Temp])]] with @{weaponname}">Hit</button></td>
+          <td><input type="text" name="attr_damsm" class="sheet-short"><button type="roll" name="roll_damsm" class="sheet-d8-dark" value="/em rolls [[@{damsm}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
+          <td><input type="text" name="attr_daml" class="sheet-short"><button type="roll" name="roll_daml" class="sheet-d12-dark" value="/em rolls [[@{daml}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
+          <td><input type="text" name="attr_range" class="sheet-mid2"></td>
+          <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
+          <td><input type="text" name="attr_weaptype" class="sheet-tiny"></td>
+          <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
+        </tr>
+      </table>
+    </fieldset>
+    <br /><span>Weapon Notes</span><br/>
+    <textarea name="attr_weaponnotes" class="sheet-full-page-textbox"></textarea>
+    <hr>
+  </div>
+
+  <div name="Simplified Spells">
+    <h4>Spells</h4>
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <th class="bluetable">Spell</th>
+        <th class="bluetable">School/Sphere</th>
+        <th class="bluetable">Roll</th>
+        <th class="bluetable">Description</th>
+        <th class="bluetable">Speed</th>
+      </tr>
+      <tr>
+        <td><input type="text" name="attr_spell_name" class="sheet-cool-name"></td>
+        <td><input type="text" name="attr_spell_school" class="sheet-spell-school-sphere"></td>
+        <td><input type="text" name="attr_spell_roll" class="sheet-short"><button type="roll" name="roll_spell" class="sheet-spell-dark" value="/em rolls [[@{spell_roll}]] with @{spell_name}!"></button></td>
+        <td><input type="text" name="attr_spell_description" class="sheet-long"></td>
+        <td><input type="text" name="attr_spell_speed" class="sheet-tiny"><button type="roll" name="roll_spell_speed" class="sheet-d10-dark" value="/em rolls [[d10+@{spell_speed}&{tracker}]] for initiative with @{spell_name}"></button></td>
+      </tr>
+    </table>
+    <fieldset name="repeating_spells" class="repeating_spells">
+      <table style="border-collapse: collapse; border-spacing: 0;">
+        <td><input type="text" name="attr_spell_name" class="sheet-cool-name"></td>
+        <td><input type="text" name="attr_spell_school" class="sheet-spell-school-sphere"></td>
+        <td><input type="text" name="attr_spell_roll" class="sheet-short"><button type="roll" name="roll_spell" class="sheet-spell-dark" value="/em rolls [[@{spell_roll}]] with @{spell_name}!"></button></td>
+        <td><input type="text" name="attr_spell_description" class="sheet-long"></td>
+        <td><input type="text" name="attr_spell_speed" class="sheet-tiny"><button type="roll" name="roll_spell_speed" class="sheet-d10-dark" value="/em rolls [[d10+@{spell_speed}&{tracker}]] for initiative with @{spell_name}"></button></td>
+      </table>
+    </fieldset>
+    <br/>
+    <div class="sheet-2colrow">
+      <div class="sheet-col">
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab13" value="1" checked="checked"> <span class="span">Spellbook&nbsp;&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab14" value="2"> <span>Loadout 1&nbsp;&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab15" value="3"> <span>Loadout 2&nbsp;&nbsp;&nbsp;</span>
+        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab16" value="4"> <span>Loadout 3</span>
+        <div class="sheet-tab-content sheet-tab13">
+          <textarea name="attr_spellbook" class="sheet-half-page-textbox" placeholder="Spells you have access to which aren't listed above"></textarea>
+        </div>
+        <div class="sheet-tab-content sheet-tab14">
+          <textarea name="attr_spell_loadout_1" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+        </div>
+        <div class="sheet-tab-content sheet-tab15">
+          <textarea name="attr_spell_loadout_2" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+        </div>
+        <div class="sheet-tab-content sheet-tab16">
+          <textarea name="attr_spell_loadout_3" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
+        </div>
+      </div>
+      <div class="sheet-col">
+        <span>Spells Memorized:</span>
+        <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image"></textarea><br/>
+        <button type="roll" name="send_spells_memorized" class="sheet-book-dark" value="Spells memorized today:\n@{spells_memorized}"> Share memorized spells to chat</button>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div name="Simplified Ability Checks & Saving Throws" class="sheet-2colrow">
+    <div class="sheet-col">
+      <h4>Ability Checks</h4>
+      <button type="roll" name="roll_strcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Strength}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Strength Ability Check]">&nbsp;Strength</button><br/>
+      <button type="roll" name="roll_dexcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Dexterity}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Dexterity Ability Check]">&nbsp;Dexterity</button><br/>
+      <button type="roll" name="roll_concheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Constitution}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Constitution Ability Check]">&nbsp;Constitution</button><br/>
+      <button type="roll" name="roll_intcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Intelligence}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Intelligence Ability Check]">&nbsp;Intelligence</button><br/>
+      <button type="roll" name="roll_wischeck" class="sheet-d20-dark" value="/roll {1d20+[[@{Wisdom}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Wisdom Ability Check]">&nbsp;Wisdom</button><br/>
+      <button type="roll" name="roll_chacheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Charisma}?{Misc. bonus (please include + or -)|+0}]]}>[[21]] [Charisma Ability Check]">&nbsp;Charisma</button>
+    </div>
+
+    <div class="sheet-col">
+      <h4>Saving Throws</h4>
+      <!-- /* lol need to add default in case value doesn't exist */ -->
+      <button type="roll" name="roll_parsave" class="sheet-d20-dark" value="/roll {1d20+@{parmod}+@{temp_saving_throws}[Temp]}>@{partar} save vs. Paralyzation, Poison, Death Magic">&nbsp;Paralyzation, Poison, Death Magic</button><br/>
+      <button type="roll" name="roll_rodsave" class="sheet-d20-dark" value="/roll {1d20+@{rodmod}+@{temp_saving_throws}[Temp]}>@{rodtar} save vs. Rod, Staff, or Wand">&nbsp;Rod, Staff, Wand</button><br/>
+      <button type="roll" name="roll_petsave" class="sheet-d20-dark" value="/roll {1d20+@{petmod}+@{temp_saving_throws}[Temp]}>@{pettar} save vs. Petrification or Polymorph">&nbsp;Petrification, Polymorph</button><br/>
+      <button type="roll" name="roll_breathsave" class="sheet-d20-dark" value="/roll {1d20+@{breathmod}+@{temp_saving_throws}[Temp]}>@{breathtar} save vs. Breath Weapon">&nbsp;Breath Weapon</button><br/>
+      <button type="roll" name="roll_spsave" class="sheet-d20-dark" value="/roll {1d20+@{spmod}+@{temp_saving_throws}[Temp]}>@{sptar} save vs. Spell">&nbsp;Spell</button><br/>
+    </div>
+  </div>
+</div>
+
+<div name="Inventory Tab" class="sheet-tab-content sheet-tab18">
   <div name="Gear Section">
     <h4>Gear on Person</h4>
     <table style="border-collapse: collapse; border-spacing: 0;">
@@ -957,272 +1239,6 @@
     </div>
     <hr>
   </div>
-
-  <div name="Henchmen/Animal Companions">
-    <h4>Henchmen/Animal Companions</h4>
-    <table style="border-collapse: collapse; border-spacing: 0;">
-      <tr>
-        <th class="bluetable">Name</th>
-        <th class="bluetable">AC</th>
-        <th class="bluetable">Race/Class</th>
-        <th class="bluetable">Lvl/HD</th>
-        <th class="bluetable">#Atks</th>
-        <th class="bluetable">Atk +</th>
-        <th class="bluetable">Dmg</th>
-        <th class="bluetable">HP</th>
-        <th class="bluetable">Notes</th>
-      </tr>
-      <tr>
-        <td><input type="text" name="attr_henchname" class="sheet-generic"></td>
-        <td><input type="text" name="attr_henchac" class="sheet-short"></td>
-        <td><input type="text" name="attr_henchrace" class="sheet-generic"></td>
-        <td><input type="text" name="attr_henchlvl" class="sheet-short"></td>
-        <td><input type="text" name="attr_henchatknum" class="sheet-short"></td>
-        <td><input type="text" name="attr_henchthac" class="sheet-short"></td>
-        <td><input type="text" name="attr_henchdmg" class="sheet-short"></td>
-        <td><input type="number" name="attr_henchhp" class="sheet-nobut"/>/<input type="number" name="attr_henchhpmax" class="sheet-nobut"/></td>
-        <td><input type="text" name="attr_henchnotes" class="sheet-generic"></td>
-      </tr>
-    </table>
-    <fieldset name="repeating_hench" class="repeating_hench">
-      <table>
-        <tr>
-          <td><input type="text" name="attr_henchname" class="sheet-generic"></td>
-          <td><input type="text" name="attr_henchac" class="sheet-short"></td>
-          <td><input type="text" name="attr_henchrace" class="sheet-generic"></td>
-          <td><input type="text" name="attr_henchlvl" class="sheet-short"></td>
-          <td><input type="text" name="attr_henchatknum" class="sheet-short"></td>
-          <td><input type="text" name="attr_henchthac" class="sheet-short"></td>
-          <td><input type="text" name="attr_henchdmg" class="sheet-short"></td>
-          <td><input type="number" name="attr_henchhp" class="sheet-nobut"/>/<input type="number" name="attr_henchhpmax" class="sheet-nobut" /></td>
-          <td><input type="text" name="attr_henchnotes" class="sheet-generic"></td>
-        </tr>
-      </table>
-    </fieldset>
-    <br />
-    <span>Companion Notes</span><br/>
-    <textarea name="attr_henchnotesarea" class="sheet-full-page-textbox"></textarea>
-  </div>
-</div>
-
-<!-- SIMPLIFIED COMBAT TAB -->
-<div name="Simplified Combat Tab" class="sheet-tab-content sheet-tab2">
-  <div name="Temporary Buffs">
-      <br />
-      <div class="sheet-2colrow">
-        <div class="sheet-col">
-          <h4>Temporary Buffs</h4>
-          <table>
-            <tr>
-              <th class="sheet-center">Attack</th>
-              <th class="sheet-center">Damage</th>
-              <th class="sheet-center">Initiative</th>
-              <th class="sheet-center">Saving<br/>Throws</th>
-              <th class="sheet-center">Ability<br/>Checks</th>
-            </tr>
-            <tr>
-              <td><input type="text" name="attr_temp_attack" class="sheet-mid sheet-center" value="0"></td>
-              <td><input type="text" name="attr_temp_damage" class="sheet-mid sheet-center" value="0"></td>
-              <td><input type="text" name="attr_temp_initiative" class="sheet-mid sheet-center" value="0"></td>
-              <td><input type="text" name="attr_temp_saving_throws" class="sheet-mid sheet-center" value="0"></td>
-              <td><input type="text" name="attr_temp_ability_checks" class="sheet-mid sheet-center" value="0"></td>
-            </tr>
-          </table>
-        </div>
-        <div class="sheet-col">
-          <table>
-            <tr>
-              <th>
-                <input type="checkbox" name="attr_temp_bless" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Bless</span>
-              </th>
-              <th>
-                <input type="checkbox" name="attr_temp_bard_attack" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Bard Attack</span>
-              </th>
-              <th>
-                <input type="checkbox" name="attr_temp_haste" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Haste</span>              
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <input type="checkbox" name="attr_temp_chant" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Chant</span>
-              </th>
-              <th>
-                <input type="checkbox" name="attr_temp_bard_save" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Bard Saves</span>
-              </th>
-              <th>
-                <input type="checkbox" name="attr_temp_faerie_fire" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Faerie Fire </span><select name="attr_temp_faerie_fire_bonus" class="sheet-tiny" style="height:19.2px; padding-top:0; padding-bottom:0;">
-                                          <option value="1">1</option><option value="2">2</option></select>
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <input type="checkbox" name="attr_temp_prayer" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Prayer</span>
-              </th>
-              <th>
-                <input type="checkbox" name="attr_temp_aid" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Aid</span>
-              </th>
-              <th>
-                <input type="checkbox" name="attr_temp_enlarge" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Enlarge </span><select name="attr_temp_enlarge_level" class="sheet-tiny" style="height:19.2px; padding-top:0; padding-bottom:0; float:right;">
-                                      <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
-                                      <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
-                                      <option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option>
-                                      <option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option>
-                                    </select>
-                <input type="number" name="attr_enlarge_bonus" value="1" style="display: none;">
-              </th>
-            </tr>
-            <tr>
-              <th>
-                <input type="checkbox" name="attr_temp_recitation" class="custom-checkbox" style="height: 19.2px; width: 19.2px;" value="1">
-                <span>Recitation</span>
-              </th>
-              <th></th>
-              <th></th>
-            </tr>
-          </table>
-        </div>
-      </div>
-    <hr>
-  </div>
-
-  <div name="Simplified Weapons">
-    <h4>Weapons</h4>
-    <table style="border-collapse: collapse; border-spacing: 0;">
-      <tr>
-        <th class="bluetable">Weapon</th>
-        <th class="bluetable"># Atks</th>
-        <th class="bluetable">Atk +</th>
-        <th class="bluetable">Dam +</th>
-        <th class="bluetable">Swing</th>
-        <th class="bluetable">Dam SM</th>
-        <th class="bluetable">Dam L</th>
-        <th class="bluetable">Range</th>
-        <th class="bluetable">Size</th>
-        <th class="bluetable">Type</th>
-        <th class="bluetable">Speed</th>
-      </tr>
-      <tr>
-        <td><input type="text" name="attr_weaponname" class="sheet-cool-name"></td>
-        <td><input type="text" name="attr_attacknum" class="sheet-short"></td>
-        <td><input type="text" name="attr_attackadj" class="sheet-short" value="+0"></td>
-        <td><input type="text" name="attr_damadj" class="sheet-short" value="+0"></td>
-        <td><button type="roll" name="roll_hit1" class="sheet-d20-dark" value="/em hits AC [[1d20+(@{PC_ATKBONUS}[Level])+(@{attackadj}[Atk Adjust])+(@{strengthhit}[Str Bonus])+(@{temp_attack}[Temp])]] with @{weaponname}">Hit</button></td>
-        <td><input type="text" name="attr_damsm" class="sheet-short"><button type="roll" name="roll_damsm" class="sheet-d8-dark" value="/em rolls [[@{damsm}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
-        <td><input type="text" name="attr_daml" class="sheet-short"><button type="roll" name="roll_daml" class="sheet-d12-dark" value="/em rolls [[@{daml}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
-        <td><input type="text" name="attr_range" class="sheet-mid2"></td>
-        <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
-        <td><input type="text" name="attr_Weaptype" class="sheet-tiny"></td>
-        <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
-      </tr>
-    </table>
-    <fieldset name="repeating_weapons" class="repeating_weapons">
-      <table style="border-collapse: collapse; border-spacing: 0;">
-        <tr>
-          <td><input type="text" name="attr_weaponname" class="sheet-cool-name"></td>
-          <td><input type="text" name="attr_attacknum" class="sheet-short"></td>
-          <td><input type="text" name="attr_attackadj" class="sheet-short" value="+0"></td>
-          <td><input type="text" name="attr_damadj" class="sheet-short" value="+0"></td>
-          <td><button type="roll" name="roll_hit1" class="sheet-d20-dark" value="/em hits AC [[1d20+(@{PC_ATKBONUS}[Level])+(@{attackadj}[Atk Adjust])+(@{strengthhit}[Str Bonus])+(@{temp_attack}[Temp])]] with @{weaponname}">Hit</button></td>
-          <td><input type="text" name="attr_damsm" class="sheet-short"><button type="roll" name="roll_damsm" class="sheet-d8-dark" value="/em rolls [[@{damsm}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
-          <td><input type="text" name="attr_daml" class="sheet-short"><button type="roll" name="roll_daml" class="sheet-d12-dark" value="/em rolls [[@{daml}*@{enlarge_bonus}[Enlarge]+(@{damadj})[Dmg Adj]+(@{strengthdmg})[Str Adj]+@{temp_damage}[Temp]]] damage with @{weaponname}!"></button></td>
-          <td><input type="text" name="attr_range" class="sheet-mid2"></td>
-          <td><input type="text" name="attr_weapsize" class="sheet-tiny"></td>
-          <td><input type="text" name="attr_weaptype" class="sheet-tiny"></td>
-          <td><input type="number" name="attr_weapspeed" class="sheet-tiny"><button type="roll" name="roll_init" class="sheet-d10-dark" value="/em rolls [[d10+@{weapspeed}[Speed]+@{temp_initiative}[Temp]&{tracker}]] for initiative with @{weaponname}"></button></td>
-        </tr>
-      </table>
-    </fieldset>
-    <br /><span>Weapon Notes</span><br/>
-    <textarea name="attr_weaponnotes" class="sheet-full-page-textbox"></textarea>
-    <hr>
-  </div>
-
-  <div name="Simplified Spells">
-    <h4>Spells</h4>
-    <table style="border-collapse: collapse; border-spacing: 0;">
-      <tr>
-        <th class="bluetable">Spell</th>
-        <th class="bluetable">School/Sphere</th>
-        <th class="bluetable">Roll</th>
-        <th class="bluetable">Description</th>
-        <th class="bluetable">Speed</th>
-      </tr>
-      <tr>
-        <td><input type="text" name="attr_spell_name" class="sheet-cool-name"></td>
-        <td><input type="text" name="attr_spell_school" class="sheet-spell-school-sphere"></td>
-        <td><input type="text" name="attr_spell_roll" class="sheet-short"><button type="roll" name="roll_spell" class="sheet-spell-dark" value="/em rolls [[@{spell_roll}]] with @{spell_name}!"></button></td>
-        <td><input type="text" name="attr_spell_description" class="sheet-long"></td>
-        <td><input type="text" name="attr_spell_speed" class="sheet-tiny"><button type="roll" name="roll_spell_speed" class="sheet-d10-dark" value="/em rolls [[d10+@{spell_speed}&{tracker}]] for initiative with @{spell_name}"></button></td>
-      </tr>
-    </table>
-    <fieldset name="repeating_spells" class="repeating_spells">
-      <table style="border-collapse: collapse; border-spacing: 0;">
-        <td><input type="text" name="attr_spell_name" class="sheet-cool-name"></td>
-        <td><input type="text" name="attr_spell_school" class="sheet-spell-school-sphere"></td>
-        <td><input type="text" name="attr_spell_roll" class="sheet-short"><button type="roll" name="roll_spell" class="sheet-spell-dark" value="/em rolls [[@{spell_roll}]] with @{spell_name}!"></button></td>
-        <td><input type="text" name="attr_spell_description" class="sheet-long"></td>
-        <td><input type="text" name="attr_spell_speed" class="sheet-tiny"><button type="roll" name="roll_spell_speed" class="sheet-d10-dark" value="/em rolls [[d10+@{spell_speed}&{tracker}]] for initiative with @{spell_name}"></button></td>
-      </table>
-    </fieldset>
-    <br/>
-    <div class="sheet-2colrow">
-      <div class="sheet-col">
-        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab13" value="1" checked="checked"> <span class="span">Spellbook&nbsp;&nbsp;&nbsp;</span>
-        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab14" value="2"> <span>Loadout 1&nbsp;&nbsp;&nbsp;</span>
-        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab15" value="3"> <span>Loadout 2&nbsp;&nbsp;&nbsp;</span>
-        <input type="radio" name="attr_tab8" class="sheet-tab sheet-tab16" value="4"> <span>Loadout 3</span>
-        <div class="sheet-tab-content sheet-tab13">
-          <textarea name="attr_spellbook" class="sheet-half-page-textbox" placeholder="Spells you have access to which aren't listed above"></textarea>
-        </div>
-        <div class="sheet-tab-content sheet-tab14">
-          <textarea name="attr_spell_loadout_1" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
-        </div>
-        <div class="sheet-tab-content sheet-tab15">
-          <textarea name="attr_spell_loadout_2" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
-        </div>
-        <div class="sheet-tab-content sheet-tab16">
-          <textarea name="attr_spell_loadout_3" class="sheet-half-page-textbox" placeholder="You can setup common spell loadouts here which you paste into Spells Memorized at the start of the day"></textarea>
-        </div>
-      </div>
-      <div class="sheet-col">
-        <span>Spells Memorized:</span>
-        <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image"></textarea><br/>
-        <button type="roll" name="send_spells_memorized" class="sheet-book-dark" value="Spells memorized today:\n@{spells_memorized}"> Share memorized spells to chat</button>
-      </div>
-    </div>
-    <hr>
-  </div>
-
-  <div name="Simplified Ability Checks & Saving Throws" class="sheet-2colrow">
-    <div class="sheet-col">
-      <h4>Ability Checks</h4>
-      <button type="roll" name="roll_strcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Strength}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Strength Ability Check]">&nbsp;Strength</button><br/>
-      <button type="roll" name="roll_dexcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Dexterity}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Dexterity Ability Check]">&nbsp;Dexterity</button><br/>
-      <button type="roll" name="roll_concheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Constitution}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Constitution Ability Check]">&nbsp;Constitution</button><br/>
-      <button type="roll" name="roll_intcheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Intelligence}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Intelligence Ability Check]">&nbsp;Intelligence</button><br/>
-      <button type="roll" name="roll_wischeck" class="sheet-d20-dark" value="/roll {1d20+[[@{Wisdom}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Wisdom Ability Check]">&nbsp;Wisdom</button><br/>
-      <button type="roll" name="roll_chacheck" class="sheet-d20-dark" value="/roll {1d20+[[@{Charisma}?{Misc. bonus (please include + or -)|+0}]]}>[[20]] [Charisma Ability Check]">&nbsp;Charisma</button>
-    </div>
-
-    <div class="sheet-col">
-      <h4>Saving Throws</h4>
-      <!-- /* lol need to add default in case value doesn't exist */ -->
-      <button type="roll" name="roll_parsave" class="sheet-d20-dark" value="/roll {1d20+@{parmod}+@{temp_saving_throws}[Temp]}>@{partar} save vs. Paralyzation, Poison, Death Magic">&nbsp;Paralyzation, Poison, Death Magic</button><br/>
-      <button type="roll" name="roll_rodsave" class="sheet-d20-dark" value="/roll {1d20+@{rodmod}+@{temp_saving_throws}[Temp]}>@{rodtar} save vs. Rod, Staff, or Wand">&nbsp;Rod, Staff, Wand</button><br/>
-      <button type="roll" name="roll_petsave" class="sheet-d20-dark" value="/roll {1d20+@{petmod}+@{temp_saving_throws}[Temp]}>@{pettar} save vs. Petrification or Polymorph">&nbsp;Petrification, Polymorph</button><br/>
-      <button type="roll" name="roll_breathsave" class="sheet-d20-dark" value="/roll {1d20+@{breathmod}+@{temp_saving_throws}[Temp]}>@{breathtar} save vs. Breath Weapon">&nbsp;Breath Weapon</button><br/>
-      <button type="roll" name="roll_spsave" class="sheet-d20-dark" value="/roll {1d20+@{spmod}+@{temp_saving_throws}[Temp]}>@{sptar} save vs. Spell">&nbsp;Spell</button><br/>
-    </div>
-  </div>
 </div>
 
 <!-- MONSTER SHEET TAB -->
@@ -1446,6 +1462,147 @@
   </div>
 </div>
 
+<!-- QUICK REFERENCE TAB -->
+<div name="Quick Reference Tab" class="sheet-tab-content sheet-tab19">
+  <br />
+  <div class="sheet-2colrow">
+    <div class="sheet-col" style="width: 350px;">
+      <h4>Common Initiative Values and Modifiers</h4>
+      <br>
+
+      <div class="flex-row-for-tables" style="display: flex; flex-direction: row;">
+        <table class="bordered-table" style="margin-right: 20px;">
+          <tr><td>Rod</td> <td>+1</td></tr>
+          <tr><td>Staff</td> <td>+2</td></tr>
+          <tr><td>Wand</td> <td>+3</td></tr>
+          <tr><td>Ring, Misc. magic item</td> <td>+3</td></tr>
+          <tr><td>Potion</td> <td>+4</td></tr>
+          <tr><td>Breath Weapon</td> <td>+1</td></tr>
+          <tr><td>Innate spell ability</td> <td>+3</td></tr>
+          <tr><td>Tiny creature</td> <td>+0</td></tr>
+          <tr><td>Small, medium creature</td> <td>+3</td></tr>
+          <tr><td>Large creature</td> <td>+6</td></tr>
+          <tr><td>Huge creature</td> <td>+9</td></tr>
+          <tr><td>Gargantuan creature</td> <td>+12</td></tr>
+        </table>
+
+        <table class="bordered-table">
+          <tr><td>Hasted</td> <td>-2</td></tr>
+          <tr><td>Slowed</td> <td>+2</td></tr>
+          <tr><td>On higher ground</td> <td>-1</td></tr>
+          <tr><td>Set to receive charge</td> <td>-2</td></tr>
+          <tr><td>Wading, slippery footing</td> <td>+2</td></tr>
+          <tr><td>Wading in deep water</td> <td>+4</td></tr>
+          <tr><td>Foreign environemnt</td> <td>+6</td></tr>
+          <tr><td>Hindered (climbing, held)</td> <td>+1</td></tr>
+          <tr><td>Bow specialist, ready</td> <td>1st</td></tr>
+          <tr><td>Waiting (PHB p112)</td> <td>+1</td></tr>
+        </table>
+      </div>
+
+      <br>
+      <h4>What is a critical hit?</h4>
+      <br>
+      <span>
+        A <b>Physical Critical Hit</b> increases a weapon's damage profile to 2x or 3x its damage, but does not increase magic/strength/special damage modifiers.<br>
+      </span>
+
+      <br>
+      <table class="bordered-table">
+        <tr><td>Single Crit</td> <td>2x weapon damage</td> <td>attack roll d20 of 18+, and clear defender AC by 5+</td></tr>
+        <tr><td>Single Crit</td> <td>2x weapon damage</td> <td>any attack roll, clear defender AC by 10+</td></tr>
+        <tr><td>Double Crit</td> <td>3x weapon damage</td> <td>attack roll d20 of 18+, and clear defender AC by 10+</td></tr>
+        <tr><td>Double Crit</td> <td>3x weapon damage</td> <td>any attack roll, clear defender AC by 20+</td></tr>
+      </table>
+      <br>
+      
+      <span>
+        A <b>Magical Critical Hit</b> relies on the victim failing their saving throw by an amount decided by the caster's level.<br>
+      </span>
+
+      <br>
+      <table class="bordered-table">
+        <tr><td>Lvl 1-5</td> <td>Natural 3 or less, save missed by 5+</td></tr>
+        <tr><td>Lvl 6-10</td> <td>Natural 4 or less, save missed by 5+</td></tr>
+        <tr><td>Lvl 11-15</td> <td>Natural 5 or less, save missed by 5+</td></tr>
+        <tr><td>Lvl 16-20</td> <td>Natural 5 or less, save missed by 3+</td></tr>
+        <tr><td>Lvl 20+</td> <td>Natural 5 or less</td></tr>
+      </table>
+
+
+
+
+
+      <!-- <span>
+        <br>
+        <br>
+        There are "single critical" hits and "double critical" hits.<br>
+        A single critical doubles the "damage dice" of an attack, while a double crtitical triples the "damage dice" (weapon profile) of an attack.<br>
+        A critical of either kind does not increase damage from magic/strength/special/etc.<br>
+        <br>
+        A single critical hit occurs when either happens:
+        <ul>
+          <li>The attack roll d20 die rolls an 18+, AND the modified attack roll is 5 or more higher than the defender's AC</li>
+          <li>The attack roll d20 did not roll an 18+, but the modified attack roll is 10 or more higher than the defender's AC</li>
+        </ul>
+
+        A double critical hit occurs when either happens:
+        <ul>
+          <li>The attack roll d20 die rolls an 18+, AND the modified attack roll is 10 or more higher than the defender's AC</li>
+          <li>The attack roll d20 did not roll an 18+, but the modified attack roll is 20 or more higher than the defender's AC</li>
+        </ul>
+
+      </span> -->
+      
+
+
+
+
+    </div>
+
+    <div class="sheet-col">
+      <h4>Common Items and their Effects</h4>
+      <br>
+      <table class="bordered-table">
+        <tr><td>Potion of Healing</td> <td>2d4+2 healing</td></tr>
+        <tr><td>Potion of Extra Healing</td> <td>3d8+3 healing, can drink 1/3 for 1d8</td></tr>
+        <tr><td>"Lightstone"</td> <td>60ft radius magical lighting</td></tr>
+        <tr><td>"Darkstone"</td> <td>60ft radius magical darkness</td></tr>
+        <tr><td>Luckstone</td> <td>+1 to saves, -5% against bad things happening</td></tr>
+        <tr><td>Ring of Protection +X</td> <td>+X AC unless have magical armor, +X to saves</td></tr>
+        <tr><td>Cloak of Protection +X</td> <td>+X AC, +X to saves, doesn't work with armor &gt;leather</td></tr>
+        <tr><td>Armor +X</td> <td>+X to armor's AC, not to saves</td></tr>
+        <tr><td>Ring of Feather Falling</td> <td>Activates feather fall after 5ft falling</td></tr>
+      </table>
+
+      <br>
+      <h4>Movement: How much can you move?</h4>
+      <br>
+      <span>A human/elf/half-elf moves at base movement rate 12.<br>
+      A dwarf/halfling/gnome moves at base movement rate 6.<br>
+      This is modified by encumbrance, items, and spell effects.</span><br>
+
+      <br>
+      <span><b>Combat Movement</b> happens in 20 second combat rounds via Player's Option Combat &amp; Tactics time scale.<br>
+      In this 20 second round, a creature can travel its movement rate × 10 feet "walking" (a fast walk).</span>
+
+      <span>If a creature wants to attack, it can either make a half move and attack, or it can charge.<br>
+      A half move is exactly as it sounds, move normally and make your full complement of melee attacks.<br>
+      A charge action allows you to move 1.5 times your movement and still make an attack, with some modifiers:</span>
+
+      <ul>
+        <li>The charger gets an attack roll bonus of +2</li>
+        <li>The charger no longer gains his dexterity bonus to AC</li>
+        <li>The charger suffers a -1 penalty to AC</li>
+        <li>The defender will strike before the charger if the defender is guarding and has a longer weapon</li>
+      </ul>
+
+      <span><b>Daily Movement Overland</b> happens across a 10 hour day which includes stopping to rest and breaking for lunch, etc.
+      In this 10 hour day, a creature can travel its movement rate × 2 miles on a road, modified negatively for terrain.</span>
+
+    </div>
+  </div>
+</div>
 
 
 
