@@ -55,7 +55,8 @@
   height: 110px !important;
 }
 
-.charsheet span {
+.charsheet span,
+.charsheet li {
   color: #c8c3bc !important;
 }
 .charsheet h1,
@@ -75,6 +76,38 @@
 }
 .charsheet hr {
   border-color: #c8c3bc !important;
+}
+
+.bordered-table {
+  border-collapse: collapse;
+}
+
+.bordered-table th,
+.bordered-table td {
+  border: 1px solid #c8c3bc;
+  padding: 2px;
+}
+
+.tab-label-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tab-label {
+  display: inline-block;
+  width: auto !important;
+  border: 1px solid #c8c3bc;
+  border-radius: 5px;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-right: 10px !important;
+}
+
+.tab-radio {
+  pointer-events: none;
+  display: none !important;
 }
 
 .bluetable {
@@ -374,7 +407,10 @@ input[type="radio"] {
 .charsheet input.sheet-tab13:checked ~ div.sheet-tab13,
 .charsheet input.sheet-tab14:checked ~ div.sheet-tab14,
 .charsheet input.sheet-tab15:checked ~ div.sheet-tab15,
-.charsheet input.sheet-tab16:checked ~ div.sheet-tab16 {
+.charsheet input.sheet-tab16:checked ~ div.sheet-tab16,
+.charsheet input.sheet-tab17:checked ~ div.sheet-tab17,
+.charsheet input.sheet-tab18:checked ~ div.sheet-tab18,
+.charsheet input.sheet-tab19:checked ~ div.sheet-tab19 {
   display: block;
 }
 .charsheet input.sheet-tab + span::before {
@@ -385,10 +421,7 @@ input[type="radio"] {
   display: inline-block;
   vertical-align: middle;
 
-  /* box-shadow: 0 0 2px #ccc; Mike also said if Ed saw this one he'd probably jump. */
-
   background: #17191a;
-  /* background: radial-gradient(#17191a, #3e4446); Mike said this looks TRASH and NEVER to consider this again. */ 
 }
 
 /* Empty looking radio button - just the circle */
