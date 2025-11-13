@@ -492,7 +492,7 @@
             </div>
             <div class="sheet-col">
                 <span>Spells Memorized:</span><br />
-                <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image"></textarea><br/>
+                <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image&#10;&#10;Remove spells as you cast them so you don't lose track :D"></textarea><br/>
                 <button type="roll" name="send_spells_memorized" class="sheet-book-dark" value="Spells memorized today:\n@{spells_memorized}">&nbsp;Share memorized spells to chat</button>
             </div>
         </div>
@@ -904,7 +904,7 @@
       </div>
       <div class="sheet-col">
         <span>Spells Memorized:</span>
-        <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image"></textarea><br/>
+        <textarea name="attr_spells_memorized" class="sheet-half-page-textbox" placeholder="I recommend committing one row to each spell level for clarity!&#10;1x Magic Missile, 1x Color Spray&#10;1x Mirror Image&#10;&#10;Remove spells as you cast them so you don't lose track :D"></textarea><br/>
         <button type="roll" name="send_spells_memorized" class="sheet-book-dark" value="Spells memorized today:\n@{spells_memorized}"> Share memorized spells to chat</button>
       </div>
     </div>
@@ -934,6 +934,7 @@
   </div>
 </div>
 
+<!-- INVENTORY TAB -->
 <div name="Inventory Tab" class="sheet-tab-content sheet-tab18">
   <div name="Gear Section">
     <br />
@@ -953,7 +954,7 @@
           <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
           <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
           <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
-          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0"></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0" style="cursor: default;" readonly></td>
           <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
           <td><button type="action" name="act_send-backpack" class="sheet-send-down-dark">Backpack</button></td>
           <td><button type="action" name="act_send-stash" class="sheet-send-down-dark">Stash</button></td>
@@ -979,7 +980,7 @@
           <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
           <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
           <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
-          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0"></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0" style="cursor: default;" readonly></td>
           <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
           <td><button type="action" name="act_send-person" class="sheet-send-up-dark">Person</button></td>
           <td><button type="action" name="act_send-stash" class="sheet-send-down-dark">Stash</button></td>
@@ -1007,7 +1008,7 @@
           <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
           <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
           <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
-          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0"></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0" style="cursor: default;" readonly></td>
           <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
           <td><button type="action" name="act_send-person" class="sheet-send-up-dark">Person</button></td>
           <td><button type="action" name="act_send-backpack" class="sheet-send-up-dark">Backpack</button></td>
