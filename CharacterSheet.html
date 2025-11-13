@@ -4,11 +4,6 @@
 <input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab18" value="4" id="inventory_radio"/>
 <input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab19" value="5" id="quick_reference_radio"/>
 <input type="radio" name="attr_tab" class="tab-radio sheet-tab sheet-tab9" value="3" id="monster_radio"/>
-<!-- <input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" checked="checked" id="character_radio"/><span>Character Sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"/><span>Combat Sheet&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab18" value="4"/><span>Inventory&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab19" value="5"/><span>Quick Reference&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<input type="radio" name="attr_tab" class="sheet-tab sheet-tab9" value="3"/><span>Monster Sheet</span> -->
 
 <div class="tab-label-container">
   <label class="tab-label" for="character_radio">CHARACTER SHEET</label>
@@ -941,6 +936,7 @@
 
 <div name="Inventory Tab" class="sheet-tab-content sheet-tab18">
   <div name="Gear Section">
+    <br />
     <h4>Gear on Person</h4>
     <table style="border-collapse: collapse; border-spacing: 0;">
       <tr>
@@ -949,26 +945,50 @@
         <th class="bluetable" style="width: 43.5px;">Weight</th>
         <th class="bluetable" style="width: 43.5px;">Total</th>
         <th class="bluetable" style="width: 180px;">Location</th>
-        <th class="bluetable" style="width: 60px;">Stashed?</th>
       </tr>
     </table>
-    <div class="gear-container">
-      <fieldset class="repeating_gear">
-        <table style="border-collapse: collapse; border-spacing: 0;">
-          <tr>
-            <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
-            <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
-            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
-            <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" style="cursor: default;" readonly></td>
-            <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
-            <td><input type="checkbox" name="attr_stashed" class="stash-check custom-checkbox" style="height: 19.2px; width: 19.2px; margin-left: 20px;" value="1"></td>
-          </tr>
-        </table>
-      </fieldset>
-    </div>
+    <fieldset class="repeating_gear">
+      <table style="border-collapse: collapse; border-spacing: 0;">
+        <tr>
+          <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
+          <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+          <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0"></td>
+          <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
+          <td><button type="action" name="act_send-backpack" class="sheet-send-down-dark">Backpack</button></td>
+          <td><button type="action" name="act_send-stash" class="sheet-send-down-dark">Stash</button></td>
+        </tr>
+      </table>
+    </fieldset>
 
-    <span>Total On-Person Weight: </span><input type="number" name="attr_on_person_weight_total" class="sheet-mid sheet-nobut"  style="cursor: default;" readonly>
+    <span>Total On-Person Weight: </span><input type="number" name="attr_gear_weight_total" class="sheet-mid sheet-nobut"  style="cursor: default;" readonly>
 
+    <h4>Gear in Backpack</h4>
+    <table style="border-collapse: collapse; border-spacing: 0;">
+      <tr>
+        <th class="bluetable" style="width: 388px;">Description</th>
+        <th class="bluetable" style="width: 43.5px;">Quant</th>
+        <th class="bluetable" style="width: 43.5px;">Weight</th>
+        <th class="bluetable" style="width: 43.5px;">Total</th>
+        <th class="bluetable" style="width: 180px;">Location</th>
+      </tr>
+    </table>
+    <fieldset class="repeating_backpack">
+      <table style="border-collapse: collapse; border-spacing: 0;">
+        <tr>
+          <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
+          <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+          <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0"></td>
+          <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
+          <td><button type="action" name="act_send-person" class="sheet-send-up-dark">Person</button></td>
+          <td><button type="action" name="act_send-stash" class="sheet-send-down-dark">Stash</button></td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <span>Total Backpack Weight: </span><input type="number" name="attr_backpack_weight_total" class="sheet-mid sheet-nobut"  style="cursor: default;" readonly>
+    
     <br/>
     <br/>
     <h4>Gear in Stash</h4>
@@ -979,25 +999,23 @@
         <th class="bluetable" style="width: 43.5px;">Weight</th>
         <th class="bluetable" style="width: 43.5px;">Total</th>
         <th class="bluetable" style="width: 180px;">Location</th>
-        <th class="bluetable" style="width: 60px;">Stashed?</th>
       </tr>
     </table>
-    <div class="stash-container">
-      <fieldset class="repeating_gear">
-        <table style="border-collapse: collapse; border-spacing: 0;">
-          <tr>
-            <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
-            <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
-            <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
-            <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" style="cursor: default;" readonly></td>
-            <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
-            <td><input type="checkbox" name="attr_stashed" class="stash-check custom-checkbox" style="height: 19.2px; width: 19.2px; margin-left: 20px;" value="1"></td>
-          </tr>
-        </table>
-      </fieldset>
-    </div>
+    <fieldset class="repeating_stash">
+      <table style="border-collapse: collapse; border-spacing: 0;">
+        <tr>
+          <td><input type="text" name="attr_geardesc" class="sheet-long" placeholder="Item"></td>
+          <td><input type="number" name="attr_gearquantity" class="sheet-short" min="0" value="1"></td>
+          <td><input type="number" name="attr_gearweigh" class="sheet-short sheet-nobut" step="0.1" min="0" value="1"></td>
+          <td><input type="number" name="attr_geartotal" class="sheet-short sheet-nobut" step="0.1" min="0"></td>
+          <td><input type="text" name="attr_gearloc" class="sheet-cool-name" placeholder="Backpack, Belt, Boot, etc."></td>
+          <td><button type="action" name="act_send-person" class="sheet-send-up-dark">Person</button></td>
+          <td><button type="action" name="act_send-backpack" class="sheet-send-up-dark">Backpack</button></td>
+        </tr>
+      </table>
+    </fieldset>
 
-    <span>Total In-Stash Weight: </span><input type="number" name="attr_in_stash_weight_total" class="sheet-mid sheet-nobut" style="cursor: default;" readonly>
+    <span>Total In-Stash Weight: </span><input type="number" name="attr_stash_weight_total" class="sheet-mid sheet-nobut" style="cursor: default;" readonly>
 
     <br />
     <br />
@@ -4486,25 +4504,102 @@ var TAS = TAS || (function(){
     return Math.round(num * 100) / 100;
   }
 
-  /* Sort out on-person and in-stash weight */
-  /* Relatively expensive to iterate through all gear each time any changes are made, so update everything within a single iteration at cost of readability */
-	on('change:repeating_gear:gearquantity change:repeating_gear:gearweigh change:repeating_gear:stashed', function(){
-		TAS.repeating('gear')
-			.fields('gearquantity','gearweigh','geartotal','stashed')
+  function moveItem(fromRow, toRow, rowId) {
+    getAttrs([`${fromRow}_geardesc`, `${fromRow}_gearquantity`, `${fromRow}_gearweigh`, `${fromRow}_geartotal`, `${fromRow}_gearloc`], function(values) {
+      console.log(values);
+      var newrowattrs = {};
+      newrowattrs[`${toRow}_` + rowId + "_geardesc"] = values[`${fromRow}_geardesc`];
+      newrowattrs[`${toRow}_` + rowId + "_gearquantity"] = values[`${fromRow}_gearquantity`];
+      newrowattrs[`${toRow}_` + rowId + "_gearweigh"] = values[`${fromRow}_gearweigh`];
+      newrowattrs[`${toRow}_` + rowId + "_geartotal"] = values[`${fromRow}_geartotal`];
+      newrowattrs[`${toRow}_` + rowId + "_gearloc"] = values[`${fromRow}_gearloc`];
+      setAttrs(newrowattrs);
+      console.log(newrowattrs);
+    });
+  }
+
+  function sortWeight(storage) {
+    console.log("sort weight beginning");
+		TAS.repeating(`${storage}`)
+			.fields('gearquantity','gearweigh','geartotal')
 			.reduce(function(m,r){
         r.geartotal = round(r.F.gearquantity * r.F.gearweigh);
-        if (r.stashed == 1) {
-          m.in_stash_weight += r.geartotal;
-        } else {
-          m.on_person_weight += r.geartotal;
-        }
+        m.total += r.geartotal;
 				return m;
-			},{on_person_weight:0,in_stash_weight:0},function(m,r,a){
-        setAttrs({on_person_weight_total: (m.on_person_weight)});
-        setAttrs({in_stash_weight_total: (m.in_stash_weight)});
+			},{total:0},function(m,r,a){
+        attributeToSet = [storage] + "_weight_total";
+        setAttrs({[attributeToSet]: round(m.total)});
 			})
 			.execute();
+    console.log("sort weight executed");
+  }
+
+  /* send gear on person to backpack */
+  on('clicked:repeating_gear:send-backpack', function(eventInfo){
+    const fromSection = "repeating_" + eventInfo.sourceAttribute.split('_')[1];
+    const rowId = eventInfo.sourceAttribute.split('_')[2];
+    moveItem(fromSection, "repeating_backpack", rowId);
+    removeRepeatingRow("repeating_gear_" + rowId);
+    sortWeight('gear');
+  });
+
+  /* send gear on person to stash */
+  on('clicked:repeating_gear:send-stash', function(eventInfo){
+    const fromSection = "repeating_" + eventInfo.sourceAttribute.split('_')[1];
+    const rowId = eventInfo.sourceAttribute.split('_')[2];
+    moveItem(fromSection, "repeating_stash", rowId);
+    removeRepeatingRow("repeating_gear_" + rowId);
+    sortWeight('gear');
+  });
+
+  /* send from backpack to person */
+  on('clicked:repeating_backpack:send-person', function(eventInfo){
+    const fromSection = "repeating_" + eventInfo.sourceAttribute.split('_')[1];
+    const rowId = eventInfo.sourceAttribute.split('_')[2];
+    moveItem(fromSection, "repeating_gear", rowId);
+    removeRepeatingRow("repeating_backpack_" + rowId);
+    sortWeight('backpack');
+  });
+
+  /* send from backpack to stash */
+  on('clicked:repeating_backpack:send-stash', function(eventInfo){
+    const fromSection = "repeating_" + eventInfo.sourceAttribute.split('_')[1];
+    const rowId = eventInfo.sourceAttribute.split('_')[2];
+    moveItem(fromSection, "repeating_stash", rowId);
+    removeRepeatingRow("repeating_backpack_" + rowId);
+    sortWeight('backpack');
+  });
+
+  /* stash to person */
+  on('clicked:repeating_stash:send-person', function(eventInfo){
+    const rowId = eventInfo.sourceAttribute.split('_')[2];
+    moveItem("repeating_stash", "repeating_gear", rowId);
+    removeRepeatingRow("repeating_stash_" + rowId);
+    sortWeight('stash');
+  });
+
+  /* stash to backpack */
+  on('clicked:repeating_stash:send-backpack', function(eventInfo){
+    const rowId = eventInfo.sourceAttribute.split('_')[2];
+    moveItem("repeating_stash", "repeating_backpack", rowId);
+    removeRepeatingRow("repeating_stash_" + rowId);
+    sortWeight('stash');
+  });
+
+  /* Sort out on-person and in-stash weight */
+  /* Relatively expensive to iterate through all gear each time any changes are made, so update everything within a single iteration at cost of readability */
+	on('change:repeating_gear:gearquantity change:repeating_gear:gearweigh', function(){
+    sortWeight('gear');
 	});
+
+	on('change:repeating_backpack:gearquantity change:repeating_backpack:gearweigh', function(){
+    sortWeight('backpack');
+	});
+
+	on('change:repeating_stash:gearquantity change:repeating_stash:gearweigh', function(){
+    sortWeight('stash');
+	});
+
 
   /* Sort out on-person currency weight */
 	on('change:copp change:silv change:elec change:gold change:plat', function(){
@@ -4572,7 +4667,6 @@ var TAS = TAS || (function(){
 
   /* Transfer currency from person to stash */
   on("clicked:currency_from_person_to_stash", function() {
-    console.log("Sending currency down");
     getAttrs(["copp", "silv", "elec", "gold", "plat","coin_transfer_amount", "coin_transfer_currency", "stash_copp", "stash_silv", "stash_elec", "stash_gold", "stash_plat"], function(values) {
       const transfer_amount = parseInt(values.coin_transfer_amount);
       switch(values.coin_transfer_currency) {
